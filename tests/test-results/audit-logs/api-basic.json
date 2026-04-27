@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-04-27T02:18:13.223Z",
+    "level": "info",
+    "message": "Clientes: HTTP 401",
+    "elapsed": 34
+  },
+  {
+    "timestamp": "2026-04-27T02:18:13.231Z",
+    "level": "info",
+    "message": "Vehículos: HTTP 401",
+    "elapsed": 41
+  },
+  {
+    "timestamp": "2026-04-27T02:18:13.239Z",
+    "level": "info",
+    "message": "Órdenes: HTTP 401",
+    "elapsed": 49
+  },
+  {
+    "timestamp": "2026-04-27T02:18:13.248Z",
+    "level": "info",
+    "message": "Repuestos: HTTP 401",
+    "elapsed": 58
+  }
+]

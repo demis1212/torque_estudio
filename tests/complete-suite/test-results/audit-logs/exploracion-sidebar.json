@@ -1,0 +1,146 @@
+[
+  {
+    "timestamp": "2026-04-27T00:53:23.202Z",
+    "level": "info",
+    "message": "Navegando a: Dashboard",
+    "elapsed": 3006
+  },
+  {
+    "timestamp": "2026-04-27T00:53:25.822Z",
+    "level": "info",
+    "message": "✅ Dashboard cargado exitosamente",
+    "elapsed": 5626
+  },
+  {
+    "timestamp": "2026-04-27T00:53:25.822Z",
+    "level": "info",
+    "message": "Navegando a: Clientes",
+    "elapsed": 5626
+  },
+  {
+    "timestamp": "2026-04-27T00:53:28.345Z",
+    "level": "info",
+    "message": "✅ Clientes cargado exitosamente",
+    "elapsed": 8149
+  },
+  {
+    "timestamp": "2026-04-27T00:53:28.346Z",
+    "level": "info",
+    "message": "Navegando a: Vehículos",
+    "elapsed": 8150
+  },
+  {
+    "timestamp": "2026-04-27T00:53:30.853Z",
+    "level": "info",
+    "message": "✅ Vehículos cargado exitosamente",
+    "elapsed": 10657
+  },
+  {
+    "timestamp": "2026-04-27T00:53:30.853Z",
+    "level": "info",
+    "message": "Navegando a: Órdenes",
+    "elapsed": 10657
+  },
+  {
+    "timestamp": "2026-04-27T00:53:33.345Z",
+    "level": "info",
+    "message": "✅ Órdenes cargado exitosamente",
+    "elapsed": 13149
+  },
+  {
+    "timestamp": "2026-04-27T00:53:33.346Z",
+    "level": "info",
+    "message": "Navegando a: Servicios",
+    "elapsed": 13150
+  },
+  {
+    "timestamp": "2026-04-27T00:53:35.777Z",
+    "level": "info",
+    "message": "✅ Servicios cargado exitosamente",
+    "elapsed": 15581
+  },
+  {
+    "timestamp": "2026-04-27T00:53:35.777Z",
+    "level": "info",
+    "message": "Navegando a: Operación Inteligente",
+    "elapsed": 15581
+  },
+  {
+    "timestamp": "2026-04-27T00:53:37.946Z",
+    "level": "info",
+    "message": "✅ Operación Inteligente cargado exitosamente",
+    "elapsed": 17750
+  },
+  {
+    "timestamp": "2026-04-27T00:53:37.946Z",
+    "level": "info",
+    "message": "Navegando a: Inventario",
+    "elapsed": 17750
+  },
+  {
+    "timestamp": "2026-04-27T00:53:40.293Z",
+    "level": "info",
+    "message": "✅ Inventario cargado exitosamente",
+    "elapsed": 20097
+  },
+  {
+    "timestamp": "2026-04-27T00:53:40.293Z",
+    "level": "info",
+    "message": "Navegando a: Herramientas",
+    "elapsed": 20097
+  },
+  {
+    "timestamp": "2026-04-27T00:53:42.861Z",
+    "level": "info",
+    "message": "✅ Herramientas cargado exitosamente",
+    "elapsed": 22665
+  },
+  {
+    "timestamp": "2026-04-27T00:53:42.861Z",
+    "level": "info",
+    "message": "Navegando a: Manuales",
+    "elapsed": 22665
+  },
+  {
+    "timestamp": "2026-04-27T00:53:45.209Z",
+    "level": "info",
+    "message": "✅ Manuales cargado exitosamente",
+    "elapsed": 25013
+  },
+  {
+    "timestamp": "2026-04-27T00:53:45.209Z",
+    "level": "info",
+    "message": "Navegando a: VIN Decoder",
+    "elapsed": 25013
+  },
+  {
+    "timestamp": "2026-04-27T00:53:47.546Z",
+    "level": "info",
+    "message": "✅ VIN Decoder cargado exitosamente",
+    "elapsed": 27350
+  },
+  {
+    "timestamp": "2026-04-27T00:53:47.546Z",
+    "level": "info",
+    "message": "Navegando a: DTC Codes",
+    "elapsed": 27350
+  },
+  {
+    "timestamp": "2026-04-27T00:53:49.929Z",
+    "level": "info",
+    "message": "✅ DTC Codes cargado exitosamente",
+    "elapsed": 29733
+  },
+  {
+    "timestamp": "2026-04-27T00:53:49.929Z",
+    "level": "info",
+    "message": "Navegando a: Reportes",
+    "elapsed": 29733
+  },
+  {
+    "timestamp": "2026-04-27T00:53:52.927Z",
+    "level": "info",
+    "message": "✅ Reportes cargado exitosamente",
+    "elapsed": 32731
+  }
+]

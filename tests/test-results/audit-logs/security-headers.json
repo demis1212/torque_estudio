@@ -1,0 +1,8 @@
+[
+  {
+    "timestamp": "2026-04-27T02:22:05.767Z",
+    "level": "info",
+    "message": "Headers encontrados: cache-control, connection, content-type, date, expires, keep-alive, pragma, server, set-cookie, transfer-encoding, x-powered-by",
+    "elapsed": 2920
+  }
+]

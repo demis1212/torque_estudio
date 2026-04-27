@@ -1,0 +1,92 @@
+[
+  {
+    "timestamp": "2026-04-27T00:55:47.275Z",
+    "level": "info",
+    "message": "Probando: Dashboard",
+    "elapsed": 3280
+  },
+  {
+    "timestamp": "2026-04-27T00:55:50.057Z",
+    "level": "info",
+    "message": "Probando: Clientes",
+    "elapsed": 6062
+  },
+  {
+    "timestamp": "2026-04-27T00:55:52.138Z",
+    "level": "info",
+    "message": "Probando: Vehículos",
+    "elapsed": 8143
+  },
+  {
+    "timestamp": "2026-04-27T00:55:54.024Z",
+    "level": "info",
+    "message": "Probando: Órdenes",
+    "elapsed": 10029
+  },
+  {
+    "timestamp": "2026-04-27T00:55:56.062Z",
+    "level": "info",
+    "message": "Probando: Servicios",
+    "elapsed": 12067
+  },
+  {
+    "timestamp": "2026-04-27T00:55:57.940Z",
+    "level": "info",
+    "message": "Probando: Operación Inteligente",
+    "elapsed": 13945
+  },
+  {
+    "timestamp": "2026-04-27T00:55:59.637Z",
+    "level": "info",
+    "message": "Probando: Inventario",
+    "elapsed": 15642
+  },
+  {
+    "timestamp": "2026-04-27T00:56:01.628Z",
+    "level": "info",
+    "message": "Probando: Herramientas",
+    "elapsed": 17633
+  },
+  {
+    "timestamp": "2026-04-27T00:56:03.841Z",
+    "level": "info",
+    "message": "Probando: Manuales",
+    "elapsed": 19846
+  },
+  {
+    "timestamp": "2026-04-27T00:56:05.855Z",
+    "level": "info",
+    "message": "Probando: VIN Decoder",
+    "elapsed": 21860
+  },
+  {
+    "timestamp": "2026-04-27T00:56:07.694Z",
+    "level": "info",
+    "message": "Probando: DTC Codes",
+    "elapsed": 23699
+  },
+  {
+    "timestamp": "2026-04-27T00:56:11.692Z",
+    "level": "info",
+    "message": "Probando: Reportes",
+    "elapsed": 27697
+  },
+  {
+    "timestamp": "2026-04-27T00:56:14.266Z",
+    "level": "info",
+    "message": "Probando: WhatsApp",
+    "elapsed": 30271
+  },
+  {
+    "timestamp": "2026-04-27T00:56:16.938Z",
+    "level": "info",
+    "message": "Probando: Usuarios",
+    "elapsed": 32943
+  },
+  {
+    "timestamp": "2026-04-27T00:56:18.901Z",
+    "level": "info",
+    "message": "Probando: Configuración",
+    "elapsed": 34906
+  }
+]

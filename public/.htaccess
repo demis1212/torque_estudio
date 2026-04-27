@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Proteger archivos sensibles
+<FilesMatch "\.(sql|log|ini|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Deshabilitar listado de directorios
+Options -Indexes
+
+# Configurar charset
+AddDefaultCharset UTF-8

@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-04-27T00:57:50.906Z",
+    "level": "info",
+    "message": "Clientes: 742ms",
+    "elapsed": 3583
+  },
+  {
+    "timestamp": "2026-04-27T00:57:51.593Z",
+    "level": "info",
+    "message": "Vehículos: 686ms",
+    "elapsed": 4270
+  },
+  {
+    "timestamp": "2026-04-27T00:57:52.570Z",
+    "level": "info",
+    "message": "Órdenes: 976ms",
+    "elapsed": 5247
+  },
+  {
+    "timestamp": "2026-04-27T00:57:53.289Z",
+    "level": "info",
+    "message": "Inventario: 718ms",
+    "elapsed": 5966
+  }
+]

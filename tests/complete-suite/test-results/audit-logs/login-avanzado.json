@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-04-27T00:53:09.806Z",
+    "level": "info",
+    "message": "Iniciando test de login avanzado",
+    "elapsed": 0
+  },
+  {
+    "timestamp": "2026-04-27T00:53:13.130Z",
+    "level": "info",
+    "message": "Cookies guardadas: 1",
+    "elapsed": 3324
+  }
+]

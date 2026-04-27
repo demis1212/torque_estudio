@@ -1,0 +1,204 @@
+name: 🛡️ Torque Studio - Auditoría Completa
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Ejecutar auditoría completa todos los domingos a las 2 AM
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Suite de tests a ejecutar'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - auth
+          - security
+          - api
+          - a11y
+          - performance
+          - audit
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: torque_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      
+      apache:
+        image: php:8.1-apache
+        ports:
+          - 80:80
+    
+    steps:
+    - name: 📥 Checkout código
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'npm'
+        cache-dependency-path: tests/complete-suite/package-lock.json
+
+    - name: 📦 Instalar dependencias
+      run: |
+        cd tests/complete-suite
+        npm ci
+
+    - name: 🌐 Instalar Playwright browsers
+      run: |
+        cd tests/complete-suite
+        npx playwright install chromium
+
+    - name: ⚙️ Setup PHP y Apache
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: pdo, pdo_mysql
+
+    - name: 🔧 Configurar Torque Studio
+      run: |
+        # Copiar configuración de base de datos para testing
+        cp config/database.php.example config/database.php || true
+        # Configurar conexión a MySQL de test
+        sed -i 's/localhost/127.0.0.1/' config/database.php || true
+        sed -i 's/torque/torque_test/' config/database.php || true
+
+    - name: 🗄️ Importar base de datos
+      run: |
+        mysql -h 127.0.0.1 -P 3306 -u root -proot torque_test < database/schema.sql
+        mysql -h 127.0.0.1 -P 3306 -u root -proot torque_test < database/workshop_intelligent_upgrade.sql
+
+    - name: 🚀 Iniciar servidor
+      run: |
+        php -S localhost:8080 -t public/ &
+        sleep 3
+        curl -I http://localhost:8080 || exit 1
+
+    - name: 🧪 Ejecutar Tests
+      run: |
+        cd tests/complete-suite
+        case "${{ github.event.inputs.test_suite || 'all' }}" in
+          auth)
+            npm run test:auth
+            ;;
+          security)
+            npm run test:security
+            ;;
+          api)
+            npm run test:api
+            ;;
+          a11y)
+            npm run test:a11y
+            ;;
+          performance)
+            npm run test:perf
+            ;;
+          audit)
+            npm run audit
+            ;;
+          all)
+            npm run test
+            ;;
+        esac
+      env:
+        BASE_URL: http://localhost:8080
+        CI: true
+
+    - name: 📊 Upload reporte HTML
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: audit-report-html
+        path: |
+          tests/complete-suite/test-results/audit-report.html
+          tests/complete-suite/test-results/audit-report.json
+        retention-days: 30
+
+    - name: 📸 Upload screenshots
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: test-screenshots
+        path: tests/complete-suite/test-results/screenshots/
+        retention-days: 7
+
+    - name: 📹 Upload videos
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: test-videos
+        path: tests/complete-suite/test-results/videos/
+        retention-days: 3
+
+    - name: 📋 Comentar PR con resultados
+      if: github.event_name == 'pull_request' && always()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const path = 'tests/complete-suite/test-results/audit-report.json';
+          
+          if (fs.existsSync(path)) {
+            const report = JSON.parse(fs.readFileSync(path, 'utf8'));
+            const bugs = report.bugs || [];
+            const critical = bugs.filter(b => b.severity === 'critical').length;
+            const high = bugs.filter(b => b.severity === 'high').length;
+            const medium = bugs.filter(b => b.severity === 'medium').length;
+            
+            const body = `## 🛡️ Resultados de Auditoría
+            
+            | Severidad | Cantidad |
+            |-----------|----------|
+            | 🚨 Críticos | ${critical} |
+            | 🔴 Altos | ${high} |
+            | 🟡 Medios | ${medium} |
+            | **Total Bugs** | **${bugs.length}** |
+            
+            ${critical > 0 ? '⚠️ **Se encontraron bugs críticos que deben revisarse antes de mergear**' : '✅ Sin bugs críticos'}
+            
+            <details>
+            <summary>Ver detalles completos</summary>
+            
+            ${bugs.slice(0, 10).map(b => `- **[${b.severity.toUpperCase()}]** ${b.title}`).join('\n')}
+            
+            ${bugs.length > 10 ? `\n*... y ${bugs.length - 10} más*` : ''}
+            </details>
+            
+            📊 [Ver reporte completo](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+          }
+
+  notify:
+    needs: test
+    if: always() && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📧 Notificar si hay bugs críticos
+      run: |
+        echo "Auditoría semanal completada"
+        # Aquí puedes agregar integración con Slack, email, etc.

@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": "2026-04-27T00:53:43.916Z",
+    "level": "info",
+    "message": "Análisis DOM",
+    "details": {
+      "totalElements": 198,
+      "buttons": 0,
+      "links": 27,
+      "inputs": 1,
+      "images": 0,
+      "tables": 0
+    },
+    "elapsed": 6587
+  }
+]

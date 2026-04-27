@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "2026-04-27T01:00:54.953Z",
+    "level": "info",
+    "message": "Desktop HD: 1920x1080",
+    "elapsed": 13668
+  },
+  {
+    "timestamp": "2026-04-27T01:00:58.010Z",
+    "level": "info",
+    "message": "Laptop: 1366x768",
+    "elapsed": 16725
+  },
+  {
+    "timestamp": "2026-04-27T01:01:00.810Z",
+    "level": "info",
+    "message": "Tablet: 768x1024",
+    "elapsed": 19525
+  },
+  {
+    "timestamp": "2026-04-27T01:01:03.299Z",
+    "level": "info",
+    "message": "Mobile Android: 375x667",
+    "elapsed": 22014
+  },
+  {
+    "timestamp": "2026-04-27T01:01:05.833Z",
+    "level": "info",
+    "message": "iPhone: 390x844",
+    "elapsed": 24548
+  }
+]

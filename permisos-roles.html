@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torque Studio - Esquema de Permisos por Rol</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+            color: #e8eaf2;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #8ab4f8 0%, #4d8eff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #9aa3b2;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+        
+        .dot.full { background: #4ade80; }
+        .dot.read { background: #60a5fa; }
+        .dot.none { background: #ef4444; }
+        .dot.partial { background: #fbbf24; }
+        
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .role-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .role-header {
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .role-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .admin .role-header { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+        .admin .role-icon { background: rgba(255,255,255,0.2); }
+        
+        .mechanic .role-header { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .mechanic .role-icon { background: rgba(255,255,255,0.2); }
+        
+        .reception .role-header { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .reception .role-icon { background: rgba(255,255,255,0.2); }
+        
+        .role-title {
+            flex: 1;
+        }
+        
+        .role-title h2 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+        
+        .role-title span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .role-id {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .permissions-list {
+            padding: 20px 25px;
+        }
+        
+        .perm-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .perm-item:last-child {
+            border-bottom: none;
+        }
+        
+        .perm-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .perm-info {
+            flex: 1;
+        }
+        
+        .perm-name {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .perm-desc {
+            font-size: 0.8rem;
+            color: #9aa3b2;
+            margin-top: 2px;
+        }
+        
+        .perm-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .badge-full { background: rgba(74, 222, 128, 0.2); color: #4ade80; }
+        .badge-read { background: rgba(96, 165, 250, 0.2); color: #60a5fa; }
+        .badge-none { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .badge-partial { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+        
+        .summary-table {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+        
+        .summary-table h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: #8ab4f8;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        th {
+            background: rgba(255,255,255,0.05);
+            font-weight: 600;
+            color: #8ab4f8;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            color: #e8eaf2;
+        }
+        
+        .check { color: #4ade80; font-size: 1.2rem; }
+        .times { color: #ef4444; font-size: 1.2rem; }
+        .partial { color: #fbbf24; font-size: 1.2rem; }
+        
+        .note {
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 4px solid #fbbf24;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .note strong {
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Esquema de Permisos - Torque Studio</h1>
+        <p class="subtitle">Control de acceso por roles de usuario</p>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="dot full"></div>
+                <span>Acceso Total (CRUD)</span>
+            </div>
+            <div class="legend-item">
+                <div class="dot read"></div>
+                <span>Solo Lectura</span>
+            </div>
+            <div class="legend-item">
+                <div class="dot partial"></div>
+                <span>Acceso Parcial</span>
+            </div>
+            <div class="legend-item">
+                <div class="dot none"></div>
+                <span>Sin Acceso</span>
+            </div>
+        </div>
+        
+        <div class="roles-grid">
+            <!-- ADMINISTRADOR -->
+            <div class="role-card admin">
+                <div class="role-header">
+                    <div class="role-icon">👑</div>
+                    <div class="role-title">
+                        <h2>Administrador</h2>
+                        <span>Control total del sistema</span>
+                    </div>
+                    <div class="role-id">Rol ID: 1</div>
+                </div>
+                <div class="permissions-list">
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">📊</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Dashboard</div>
+                            <div class="perm-desc">Ver estadísticas globales</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">👥</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Clientes</div>
+                            <div class="perm-desc">Crear, editar, eliminar</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">🚗</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Vehículos</div>
+                            <div class="perm-desc">Gestión completa</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">📋</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Órdenes de Trabajo</div>
+                            <div class="perm-desc">Crear, asignar, editar, eliminar</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">🔧</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Servicios</div>
+                            <div class="perm-desc">Definir servicios y precios</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">⚙️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Operación Inteligente</div>
+                            <div class="perm-desc">Administrar flujo de trabajo</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">📦</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Inventario / Repuestos</div>
+                            <div class="perm-desc">Gestionar stock y alertas</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">🛠️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Herramientas</div>
+                            <div class="perm-desc">Administrar herramientas y préstamos</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">📚</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Manuales Técnicos</div>
+                            <div class="perm-desc">Subir y gestionar documentos</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">🔍</div>
+                        <div class="perm-info">
+                            <div class="perm-name">VIN Decoder / DTC</div>
+                            <div class="perm-desc">Uso ilimitado de herramientas</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">📈</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Reportes</div>
+                            <div class="perm-desc">Ver todos los reportes y estadísticas</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">👤</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Usuarios</div>
+                            <div class="perm-desc">Crear, editar, asignar roles</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(139, 92, 246, 0.2);">⚙️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Configuración</div>
+                            <div class="perm-desc">Ajustes del sistema</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MECÁNICO -->
+            <div class="role-card mechanic">
+                <div class="role-header">
+                    <div class="role-icon">🔧</div>
+                    <div class="role-title">
+                        <h2>Mecánico</h2>
+                        <span>Operario de taller</span>
+                    </div>
+                    <div class="role-id">Rol ID: 2</div>
+                </div>
+                <div class="permissions-list">
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">📊</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Dashboard</div>
+                            <div class="perm-desc">Ver sus órdenes asignadas</div>
+                        </div>
+                        <span class="perm-badge badge-partial">Parcial</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">👥</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Clientes</div>
+                            <div class="perm-desc">Ver información (solo lectura)</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">🚗</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Vehículos</div>
+                            <div class="perm-desc">Ver historial (solo lectura)</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">📋</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Órdenes de Trabajo</div>
+                            <div class="perm-desc">Ver y actualizar sus órdenes asignadas</div>
+                        </div>
+                        <span class="perm-badge badge-partial">Parcial</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(239, 68, 68, 0.2);">🔧</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Servicios</div>
+                            <div class="perm-desc">Ver catálogo (solo lectura)</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">⚙️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Operación Inteligente</div>
+                            <div class="perm-desc">Ver órdenes asignadas</div>
+                        </div>
+                        <span class="perm-badge badge-partial">Parcial</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">📦</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Inventario / Repuestos</div>
+                            <div class="perm-desc">Solicitar repuestos</div>
+                        </div>
+                        <span class="perm-badge badge-partial">Parcial</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">🛠️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Herramientas</div>
+                            <div class="perm-desc">Solicitar y ver sus herramientas</div>
+                        </div>
+                        <span class="perm-badge badge-partial">Parcial</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">📚</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Manuales Técnicos</div>
+                            <div class="perm-desc">Consultar documentos</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(59, 130, 246, 0.2);">🔍</div>
+                        <div class="perm-info">
+                            <div class="perm-name">VIN Decoder / DTC</div>
+                            <div class="perm-desc">Uso de herramientas</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(239, 68, 68, 0.2);">📈</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Reportes</div>
+                            <div class="perm-desc">Ver solo su productividad</div>
+                        </div>
+                        <span class="perm-badge badge-partial">Parcial</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(239, 68, 68, 0.2);">👤</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Usuarios</div>
+                            <div class="perm-desc">Sin acceso</div>
+                        </div>
+                        <span class="perm-badge badge-none">Ninguno</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(239, 68, 68, 0.2);">⚙️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Configuración</div>
+                            <div class="perm-desc">Sin acceso</div>
+                        </div>
+                        <span class="perm-badge badge-none">Ninguno</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RECEPCIONISTA -->
+            <div class="role-card reception">
+                <div class="role-header">
+                    <div class="role-icon">📝</div>
+                    <div class="role-title">
+                        <h2>Recepcionista</h2>
+                        <span>Atención al cliente</span>
+                    </div>
+                    <div class="role-id">Rol ID: 3</div>
+                </div>
+                <div class="permissions-list">
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">📊</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Dashboard</div>
+                            <div class="perm-desc">Ver resumen de actividad</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">👥</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Clientes</div>
+                            <div class="perm-desc">Crear y editar clientes</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">🚗</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Vehículos</div>
+                            <div class="perm-desc">Registrar y editar vehículos</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">📋</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Órdenes de Trabajo</div>
+                            <div class="perm-desc">Crear órdenes y asignar mecánicos</div>
+                        </div>
+                        <span class="perm-badge badge-partial">Parcial</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">🔧</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Servicios</div>
+                            <div class="perm-desc">Ver catálogo (solo lectura)</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(239, 68, 68, 0.2);">⚙️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Operación Inteligente</div>
+                            <div class="perm-desc">Ver estado de órdenes</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">📦</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Inventario / Repuestos</div>
+                            <div class="perm-desc">Ver stock y consultar disponibilidad</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(239, 68, 68, 0.2);">🛠️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Herramientas</div>
+                            <div class="perm-desc">Sin acceso</div>
+                        </div>
+                        <span class="perm-badge badge-none">Ninguno</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">📚</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Manuales Técnicos</div>
+                            <div class="perm-desc">Consultar documentos</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">🔍</div>
+                        <div class="perm-info">
+                            <div class="perm-name">VIN Decoder / DTC</div>
+                            <div class="perm-desc">Uso de herramientas</div>
+                        </div>
+                        <span class="perm-badge badge-full">Total</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(16, 185, 129, 0.2);">📈</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Reportes</div>
+                            <div class="perm-desc">Ver reportes básicos</div>
+                        </div>
+                        <span class="perm-badge badge-read">Lectura</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(239, 68, 68, 0.2);">👤</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Usuarios</div>
+                            <div class="perm-desc">Sin acceso</div>
+                        </div>
+                        <span class="perm-badge badge-none">Ninguno</span>
+                    </div>
+                    <div class="perm-item">
+                        <div class="perm-icon" style="background: rgba(239, 68, 68, 0.2);">⚙️</div>
+                        <div class="perm-info">
+                            <div class="perm-name">Configuración</div>
+                            <div class="perm-desc">Sin acceso</div>
+                        </div>
+                        <span class="perm-badge badge-none">Ninguno</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary-table">
+            <h3>📊 Resumen de Permisos por Módulo</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Módulo</th>
+                        <th>Admin (1)</th>
+                        <th>Mecánico (2)</th>
+                        <th>Recepcionista (3)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Dashboard</strong></td>
+                        <td><span class="check">✓</span> Total</td>
+                        <td><span class="partial">◐</span> Parcial</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clientes</strong></td>
+                        <td><span class="check">✓</span> CRUD</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                        <td><span class="check">✓</span> CRUD</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vehículos</strong></td>
+                        <td><span class="check">✓</span> CRUD</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                        <td><span class="check">✓</span> CRUD</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Órdenes de Trabajo</strong></td>
+                        <td><span class="check">✓</span> CRUD</td>
+                        <td><span class="partial">◐</span> Asignadas</td>
+                        <td><span class="partial">◐</span> Crear/Ver</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Servicios</strong></td>
+                        <td><span class="check">✓</span> CRUD</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Operación Inteligente</strong></td>
+                        <td><span class="check">✓</span> Total</td>
+                        <td><span class="partial">◐</span> Asignadas</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inventario/Repuestos</strong></td>
+                        <td><span class="check">✓</span> CRUD</td>
+                        <td><span class="partial">◐</span> Solicitar</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Herramientas</strong></td>
+                        <td><span class="check">✓</span> Total</td>
+                        <td><span class="partial">◐</span> Préstamos</td>
+                        <td><span class="times">✗</span> Ninguno</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manuales Técnicos</strong></td>
+                        <td><span class="check">✓</span> CRUD</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                        <td><span class="check">✓</span> Lectura</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VIN Decoder / DTC</strong></td>
+                        <td><span class="check">✓</span> Total</td>
+                        <td><span class="check">✓</span> Total</td>
+                        <td><span class="check">✓</span> Total</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reportes</strong></td>
+                        <td><span class="check">✓</span> Total</td>
+                        <td><span class="partial">◐</span> Propios</td>
+                        <td><span class="check">✓</span> Básicos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Usuarios</strong></td>
+                        <td><span class="check">✓</span> CRUD</td>
+                        <td><span class="times">✗</span> Ninguno</td>
+                        <td><span class="times">✗</span> Ninguno</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Configuración</strong></td>
+                        <td><span class="check">✓</span> Total</td>
+                        <td><span class="times">✗</span> Ninguno</td>
+                        <td><span class="times">✗</span> Ninguno</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="note">
+            <strong>ℹ️ Nota:</strong> Los permisos mostrados son los definidos en el sistema. 
+            <strong>CRUD</strong> = Crear, Leer, Actualizar, Eliminar. 
+            <strong>Parcial</strong> = Acceso limitado según asignación o contexto. 
+            Para modificar permisos, edita la verificación <code>getUserRole()</code> en los controladores.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,895 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: complete-suite\full-audit.spec.ts >> 🛡️ PASADA 1: Auditoría Normal Completa >> 1.2 - Exploración Recursiva Completa del Sidebar
+- Location: complete-suite\full-audit.spec.ts:61:7
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - complementary [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: 🔧
+      - heading "Torque Studio" [level=2] [ref=e5]
+    - navigation [ref=e6]:
+      - generic [ref=e7]: Principal
+      - link " Dashboard" [ref=e8] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e9]: 
+        - text: Dashboard
+      - link " Clientes" [ref=e10] [cursor=pointer]:
+        - /url: /clients
+        - generic [ref=e11]: 
+        - text: Clientes
+      - link " Vehículos" [ref=e12] [cursor=pointer]:
+        - /url: /vehicles
+        - generic [ref=e13]: 
+        - text: Vehículos
+      - link " Órdenes" [ref=e14] [cursor=pointer]:
+        - /url: /work-orders
+        - generic [ref=e15]: 
+        - text: Órdenes
+    - navigation [ref=e16]:
+      - generic [ref=e17]: Operaciones
+      - link " Servicios" [ref=e18] [cursor=pointer]:
+        - /url: /services
+        - generic [ref=e19]: 
+        - text: Servicios
+      - link " Inventario" [ref=e20] [cursor=pointer]:
+        - /url: /parts
+        - generic [ref=e21]: 
+        - text: Inventario
+      - link " Herramientas" [ref=e22] [cursor=pointer]:
+        - /url: /tools
+        - generic [ref=e23]: 
+        - text: Herramientas
+    - navigation [ref=e24]:
+      - generic [ref=e25]: Herramientas
+      - link " Manuales" [ref=e26] [cursor=pointer]:
+        - /url: /manuals
+        - generic [ref=e27]: 
+        - text: Manuales
+      - link " VIN Decoder" [ref=e28] [cursor=pointer]:
+        - /url: /vin-decoder
+        - generic [ref=e29]: 
+        - text: VIN Decoder
+      - link " DTC Codes" [ref=e30] [cursor=pointer]:
+        - /url: /dtc
+        - generic [ref=e31]: 
+        - text: DTC Codes
+    - navigation [ref=e32]:
+      - generic [ref=e33]: Administración
+      - link " Reportes" [ref=e34] [cursor=pointer]:
+        - /url: /reports
+        - generic [ref=e35]: 
+        - text: Reportes
+      - link " Usuarios" [ref=e36] [cursor=pointer]:
+        - /url: /users
+        - generic [ref=e37]: 
+        - text: Usuarios
+      - link " Configuración" [ref=e38] [cursor=pointer]:
+        - /url: /settings
+        - generic [ref=e39]: 
+        - text: Configuración
+  - generic [ref=e40]:
+    - heading "🔧 DTC Codes - Códigos de Diagnóstico" [level=1] [ref=e42]
+    - generic [ref=e43]:
+      - paragraph [ref=e44]: "Busca códigos de error OBD2 por código (ej: P0300) o descripción."
+      - generic [ref=e45]:
+        - 'textbox "Ej: P0300, P0420, C0035..." [ref=e46]'
+        - button "Buscar Código" [ref=e47] [cursor=pointer]
+    - generic [ref=e48]:
+      - generic [ref=e51]: Baja
+      - generic [ref=e54]: Media
+      - generic [ref=e57]: Alta
+      - generic [ref=e60]: Crítica
+    - generic [ref=e61]:
+      - heading "📚 Base de Datos DTC Completa (131 códigos)" [level=3] [ref=e62]
+      - generic [ref=e63]:
+        - button "Todos" [ref=e64] [cursor=pointer]
+        - button "Motor" [ref=e65] [cursor=pointer]
+        - button "Transmisión" [ref=e66] [cursor=pointer]
+        - button "Emisiones" [ref=e67] [cursor=pointer]
+        - button "ABS" [ref=e68] [cursor=pointer]
+        - button "Airbag" [ref=e69] [cursor=pointer]
+        - button "CAN Bus" [ref=e70] [cursor=pointer]
+      - generic [ref=e71]:
+        - generic [ref=e72] [cursor=pointer]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: P0001
+            - generic [ref=e75]: Alta
+          - generic [ref=e76]: ⛽ Motor - Combustible
+          - generic [ref=e77]: Circuito Regulador Volumen Combustible Abierto
+        - generic [ref=e78] [cursor=pointer]:
+          - generic [ref=e79]:
+            - generic [ref=e80]: P0002
+            - generic [ref=e81]: Alta
+          - generic [ref=e82]: ⛽ Motor - Combustible
+          - generic [ref=e83]: Circuito Regulador Volumen Combustible Rango/Desempeño
+        - generic [ref=e84] [cursor=pointer]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: P0100
+            - generic [ref=e87]: Alta
+          - generic [ref=e88]: 💨 Motor - Entrada de Aire
+          - generic [ref=e89]: Fallo Circuito Sensor MAF
+        - generic [ref=e90] [cursor=pointer]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: P0101
+            - generic [ref=e93]: Media
+          - generic [ref=e94]: 💨 Motor - Entrada de Aire
+          - generic [ref=e95]: Circuito MAF Rango/Desempeño
+        - generic [ref=e96] [cursor=pointer]:
+          - generic [ref=e97]:
+            - generic [ref=e98]: P0102
+            - generic [ref=e99]: Alta
+          - generic [ref=e100]: 💨 Motor - Entrada de Aire
+          - generic [ref=e101]: Circuito MAF Voltaje Bajo
+        - generic [ref=e102] [cursor=pointer]:
+          - generic [ref=e103]:
+            - generic [ref=e104]: P0103
+            - generic [ref=e105]: Alta
+          - generic [ref=e106]: 💨 Motor - Entrada de Aire
+          - generic [ref=e107]: Circuito MAF Voltaje Alto
+        - generic [ref=e108] [cursor=pointer]:
+          - generic [ref=e109]:
+            - generic [ref=e110]: P0107
+            - generic [ref=e111]: Alta
+          - generic [ref=e112]: 💨 Motor - Admisión
+          - generic [ref=e113]: Circuito MAP Voltaje Bajo
+        - generic [ref=e114] [cursor=pointer]:
+          - generic [ref=e115]:
+            - generic [ref=e116]: P0108
+            - generic [ref=e117]: Alta
+          - generic [ref=e118]: 💨 Motor - Admisión
+          - generic [ref=e119]: Circuito MAP Voltaje Alto
+        - generic [ref=e120] [cursor=pointer]:
+          - generic [ref=e121]:
+            - generic [ref=e122]: P0110
+            - generic [ref=e123]: Baja
+          - generic [ref=e124]: 💨 Motor - Entrada
+          - generic [ref=e125]: Circuito Sensor Temperatura Aire Admisión
+        - generic [ref=e126] [cursor=pointer]:
+          - generic [ref=e127]:
+            - generic [ref=e128]: P0112
+            - generic [ref=e129]: Baja
+          - generic [ref=e130]: 💨 Motor - Entrada
+          - generic [ref=e131]: Circuito IAT Voltaje Bajo
+        - generic [ref=e132] [cursor=pointer]:
+          - generic [ref=e133]:
+            - generic [ref=e134]: P0113
+            - generic [ref=e135]: Baja
+          - generic [ref=e136]: 💨 Motor - Entrada
+          - generic [ref=e137]: Circuito IAT Voltaje Alto
+        - generic [ref=e138] [cursor=pointer]:
+          - generic [ref=e139]:
+            - generic [ref=e140]: P0115
+            - generic [ref=e141]: Media
+          - generic [ref=e142]: 🌡️ Enfriamiento
+          - generic [ref=e143]: Circuito Sensor Temperatura Refrigerante
+        - generic [ref=e144] [cursor=pointer]:
+          - generic [ref=e145]:
+            - generic [ref=e146]: P0117
+            - generic [ref=e147]: Media
+          - generic [ref=e148]: 🌡️ Enfriamiento
+          - generic [ref=e149]: Circuito ECT Voltaje Bajo
+        - generic [ref=e150] [cursor=pointer]:
+          - generic [ref=e151]:
+            - generic [ref=e152]: P0118
+            - generic [ref=e153]: Media
+          - generic [ref=e154]: 🌡️ Enfriamiento
+          - generic [ref=e155]: Circuito ECT Voltaje Alto
+        - generic [ref=e156] [cursor=pointer]:
+          - generic [ref=e157]:
+            - generic [ref=e158]: P0120
+            - generic [ref=e159]: Alta
+          - generic [ref=e160]: 🏁 Motor - Acelerador
+          - generic [ref=e161]: Circuito Sensor Posición Acelerador
+        - generic [ref=e162] [cursor=pointer]:
+          - generic [ref=e163]:
+            - generic [ref=e164]: P0121
+            - generic [ref=e165]: Alta
+          - generic [ref=e166]: 🏁 Motor - Acelerador
+          - generic [ref=e167]: Circuito TPS Rango/Desempeño
+        - generic [ref=e168] [cursor=pointer]:
+          - generic [ref=e169]:
+            - generic [ref=e170]: P0122
+            - generic [ref=e171]: Alta
+          - generic [ref=e172]: 🏁 Motor - Acelerador
+          - generic [ref=e173]: Circuito TPS Voltaje Bajo
+        - generic [ref=e174] [cursor=pointer]:
+          - generic [ref=e175]:
+            - generic [ref=e176]: P0123
+            - generic [ref=e177]: Alta
+          - generic [ref=e178]: 🏁 Motor - Acelerador
+          - generic [ref=e179]: Circuito TPS Voltaje Alto
+        - generic [ref=e180] [cursor=pointer]:
+          - generic [ref=e181]:
+            - generic [ref=e182]: P0128
+            - generic [ref=e183]: Baja
+          - generic [ref=e184]: 🌡️ Enfriamiento
+          - generic [ref=e185]: Temperatura Termostato Refrigerante Bajo Regulación
+        - generic [ref=e186] [cursor=pointer]:
+          - generic [ref=e187]:
+            - generic [ref=e188]: P0130
+            - generic [ref=e189]: Media
+          - generic [ref=e190]: 📊 Emisiones - O2
+          - generic [ref=e191]: Circuito Sensor O2 Banco 1 Sensor 1
+        - generic [ref=e192] [cursor=pointer]:
+          - generic [ref=e193]:
+            - generic [ref=e194]: P0131
+            - generic [ref=e195]: Media
+          - generic [ref=e196]: 📊 Emisiones - O2
+          - generic [ref=e197]: Circuito O2 Voltaje Bajo Banco 1 Sensor 1
+        - generic [ref=e198] [cursor=pointer]:
+          - generic [ref=e199]:
+            - generic [ref=e200]: P0132
+            - generic [ref=e201]: Media
+          - generic [ref=e202]: 📊 Emisiones - O2
+          - generic [ref=e203]: Circuito O2 Voltaje Alto Banco 1 Sensor 1
+        - generic [ref=e204] [cursor=pointer]:
+          - generic [ref=e205]:
+            - generic [ref=e206]: P0133
+            - generic [ref=e207]: Media
+          - generic [ref=e208]: 📊 Emisiones - O2
+          - generic [ref=e209]: O2 Respuesta Lenta Banco 1 Sensor 1
+        - generic [ref=e210] [cursor=pointer]:
+          - generic [ref=e211]:
+            - generic [ref=e212]: P0135
+            - generic [ref=e213]: Media
+          - generic [ref=e214]: 📊 Emisiones - O2
+          - generic [ref=e215]: Circuito Calentador O2 Banco 1 Sensor 1
+        - generic [ref=e216] [cursor=pointer]:
+          - generic [ref=e217]:
+            - generic [ref=e218]: P0140
+            - generic [ref=e219]: Media
+          - generic [ref=e220]: 📊 Emisiones - O2
+          - generic [ref=e221]: Circuito Sensor O2 Banco 1 Sensor 2
+        - generic [ref=e222] [cursor=pointer]:
+          - generic [ref=e223]:
+            - generic [ref=e224]: P0141
+            - generic [ref=e225]: Media
+          - generic [ref=e226]: 📊 Emisiones - O2
+          - generic [ref=e227]: Circuito Calentador O2 Banco 1 Sensor 2
+        - generic [ref=e228] [cursor=pointer]:
+          - generic [ref=e229]:
+            - generic [ref=e230]: P0171
+            - generic [ref=e231]: Alta
+          - generic [ref=e232]: ⛽ Motor - Combustible
+          - generic [ref=e233]: Sistema Muy Pobre Banco 1
+        - generic [ref=e234] [cursor=pointer]:
+          - generic [ref=e235]:
+            - generic [ref=e236]: P0172
+            - generic [ref=e237]: Alta
+          - generic [ref=e238]: ⛽ Motor - Combustible
+          - generic [ref=e239]: Sistema Muy Rico Banco 1
+        - generic [ref=e240] [cursor=pointer]:
+          - generic [ref=e241]:
+            - generic [ref=e242]: P0174
+            - generic [ref=e243]: Alta
+          - generic [ref=e244]: ⛽ Motor - Combustible
+          - generic [ref=e245]: Sistema Muy Pobre Banco 2
+        - generic [ref=e246] [cursor=pointer]:
+          - generic [ref=e247]:
+            - generic [ref=e248]: P0175
+            - generic [ref=e249]: Alta
+          - generic [ref=e250]: ⛽ Motor - Combustible
+          - generic [ref=e251]: Sistema Muy Rico Banco 2
+        - generic [ref=e252] [cursor=pointer]:
+          - generic [ref=e253]:
+            - generic [ref=e254]: P0200
+            - generic [ref=e255]: Alta
+          - generic [ref=e256]: ⛽ Motor - Inyectores
+          - generic [ref=e257]: Fallo Circuito Inyector
+        - generic [ref=e258] [cursor=pointer]:
+          - generic [ref=e259]:
+            - generic [ref=e260]: P0201
+            - generic [ref=e261]: Alta
+          - generic [ref=e262]: ⛽ Motor - Inyectores
+          - generic [ref=e263]: Circuito Inyector Cilindro 1
+        - generic [ref=e264] [cursor=pointer]:
+          - generic [ref=e265]:
+            - generic [ref=e266]: P0202
+            - generic [ref=e267]: Alta
+          - generic [ref=e268]: ⛽ Motor - Inyectores
+          - generic [ref=e269]: Circuito Inyector Cilindro 2
+        - generic [ref=e270] [cursor=pointer]:
+          - generic [ref=e271]:
+            - generic [ref=e272]: P0203
+            - generic [ref=e273]: Alta
+          - generic [ref=e274]: ⛽ Motor - Inyectores
+          - generic [ref=e275]: Circuito Inyector Cilindro 3
+        - generic [ref=e276] [cursor=pointer]:
+          - generic [ref=e277]:
+            - generic [ref=e278]: P0204
+            - generic [ref=e279]: Alta
+          - generic [ref=e280]: ⛽ Motor - Inyectores
+          - generic [ref=e281]: Circuito Inyector Cilindro 4
+        - generic [ref=e282] [cursor=pointer]:
+          - generic [ref=e283]:
+            - generic [ref=e284]: P0300
+            - generic [ref=e285]: Crítica
+          - generic [ref=e286]: ⚡ Motor - Ignición
+          - generic [ref=e287]: Fallas Aleatorias Múltiples Cilindros
+        - generic [ref=e288] [cursor=pointer]:
+          - generic [ref=e289]:
+            - generic [ref=e290]: P0301
+            - generic [ref=e291]: Alta
+          - generic [ref=e292]: ⚡ Motor - Ignición
+          - generic [ref=e293]: Falla Detectada Cilindro 1
+        - generic [ref=e294] [cursor=pointer]:
+          - generic [ref=e295]:
+            - generic [ref=e296]: P0302
+            - generic [ref=e297]: Alta
+          - generic [ref=e298]: ⚡ Motor - Ignición
+          - generic [ref=e299]: Falla Detectada Cilindro 2
+        - generic [ref=e300] [cursor=pointer]:
+          - generic [ref=e301]:
+            - generic [ref=e302]: P0303
+            - generic [ref=e303]: Alta
+          - generic [ref=e304]: ⚡ Motor - Ignición
+          - generic [ref=e305]: Falla Detectada Cilindro 3
+        - generic [ref=e306] [cursor=pointer]:
+          - generic [ref=e307]:
+            - generic [ref=e308]: P0304
+            - generic [ref=e309]: Alta
+          - generic [ref=e310]: ⚡ Motor - Ignición
+          - generic [ref=e311]: Falla Detectada Cilindro 4
+        - generic [ref=e312] [cursor=pointer]:
+          - generic [ref=e313]:
+            - generic [ref=e314]: P0305
+            - generic [ref=e315]: Alta
+          - generic [ref=e316]: ⚡ Motor - Ignición
+          - generic [ref=e317]: Falla Detectada Cilindro 5
+        - generic [ref=e318] [cursor=pointer]:
+          - generic [ref=e319]:
+            - generic [ref=e320]: P0306
+            - generic [ref=e321]: Alta
+          - generic [ref=e322]: ⚡ Motor - Ignición
+          - generic [ref=e323]: Falla Detectada Cilindro 6
+        - generic [ref=e324] [cursor=pointer]:
+          - generic [ref=e325]:
+            - generic [ref=e326]: P0325
+            - generic [ref=e327]: Media
+          - generic [ref=e328]: 🔔 Motor - Detonación
+          - generic [ref=e329]: Circuito Sensor Detonación Banco 1
+        - generic [ref=e330] [cursor=pointer]:
+          - generic [ref=e331]:
+            - generic [ref=e332]: P0335
+            - generic [ref=e333]: Crítica
+          - generic [ref=e334]: 📡 Motor - CKP
+          - generic [ref=e335]: Circuito Sensor Posición Cigüeñal
+        - generic [ref=e336] [cursor=pointer]:
+          - generic [ref=e337]:
+            - generic [ref=e338]: P0336
+            - generic [ref=e339]: Crítica
+          - generic [ref=e340]: 📡 Motor - CKP
+          - generic [ref=e341]: Circuito CKP Rango/Desempeño
+        - generic [ref=e342] [cursor=pointer]:
+          - generic [ref=e343]:
+            - generic [ref=e344]: P0340
+            - generic [ref=e345]: Alta
+          - generic [ref=e346]: 📡 Motor - CMP
+          - generic [ref=e347]: Circuito Sensor Posición Árbol Levas
+        - generic [ref=e348] [cursor=pointer]:
+          - generic [ref=e349]:
+            - generic [ref=e350]: P0400
+            - generic [ref=e351]: Media
+          - generic [ref=e352]: 🔄 Emisiones - EGR
+          - generic [ref=e353]: Flujo Recirculación Gases Escape
+        - generic [ref=e354] [cursor=pointer]:
+          - generic [ref=e355]:
+            - generic [ref=e356]: P0401
+            - generic [ref=e357]: Media
+          - generic [ref=e358]: 🔄 Emisiones - EGR
+          - generic [ref=e359]: Flujo EGR Insuficiente
+        - generic [ref=e360] [cursor=pointer]:
+          - generic [ref=e361]:
+            - generic [ref=e362]: P0402
+            - generic [ref=e363]: Media
+          - generic [ref=e364]: 🔄 Emisiones - EGR
+          - generic [ref=e365]: Flujo EGR Excesivo
+        - generic [ref=e366] [cursor=pointer]:
+          - generic [ref=e367]:
+            - generic [ref=e368]: P0410
+            - generic [ref=e369]: Media
+          - generic [ref=e370]: �️ Emisiones - Aire
+          - generic [ref=e371]: Sistema Inyección Aire Secundario
+        - generic [ref=e372] [cursor=pointer]:
+          - generic [ref=e373]:
+            - generic [ref=e374]: P0420
+            - generic [ref=e375]: Media
+          - generic [ref=e376]: 🏭 Emisiones - Catalizador
+          - generic [ref=e377]: Eficiencia Catalizador Debajo Umbral
+        - generic [ref=e378] [cursor=pointer]:
+          - generic [ref=e379]:
+            - generic [ref=e380]: P0430
+            - generic [ref=e381]: Media
+          - generic [ref=e382]: 🏭 Emisiones - Catalizador
+          - generic [ref=e383]: Eficiencia Catalizador Bajo Umbral Banco 2
+        - generic [ref=e384] [cursor=pointer]:
+          - generic [ref=e385]:
+            - generic [ref=e386]: P0440
+            - generic [ref=e387]: Media
+          - generic [ref=e388]: 🛢️ Emisiones - EVAP
+          - generic [ref=e389]: Sistema Control Emisiones Evaporativas
+        - generic [ref=e390] [cursor=pointer]:
+          - generic [ref=e391]:
+            - generic [ref=e392]: P0441
+            - generic [ref=e393]: Media
+          - generic [ref=e394]: 🛢️ Emisiones - EVAP
+          - generic [ref=e395]: Flujo Purga EVAP Incorrecto
+        - generic [ref=e396] [cursor=pointer]:
+          - generic [ref=e397]:
+            - generic [ref=e398]: P0442
+            - generic [ref=e399]: Baja
+          - generic [ref=e400]: 🛢️ Emisiones - EVAP
+          - generic [ref=e401]: Fuga Pequeña Sistema EVAP Detectada
+        - generic [ref=e402] [cursor=pointer]:
+          - generic [ref=e403]:
+            - generic [ref=e404]: P0446
+            - generic [ref=e405]: Media
+          - generic [ref=e406]: 🛢️ Emisiones - EVAP
+          - generic [ref=e407]: Circuito Control Ventilación EVAP
+        - generic [ref=e408] [cursor=pointer]:
+          - generic [ref=e409]:
+            - generic [ref=e410]: P0455
+            - generic [ref=e411]: Media
+          - generic [ref=e412]: 🛢️ Emisiones - EVAP
+          - generic [ref=e413]: Fuga Grande Sistema EVAP Detectada
+        - generic [ref=e414] [cursor=pointer]:
+          - generic [ref=e415]:
+            - generic [ref=e416]: P0500
+            - generic [ref=e417]: Media
+          - generic [ref=e418]: ⚙️ Transmisión
+          - generic [ref=e419]: Sensor Velocidad Vehículo
+        - generic [ref=e420] [cursor=pointer]:
+          - generic [ref=e421]:
+            - generic [ref=e422]: P0505
+            - generic [ref=e423]: Media
+          - generic [ref=e424]: 📉 Motor - Ralentí
+          - generic [ref=e425]: Sistema Control Ralentí
+        - generic [ref=e426] [cursor=pointer]:
+          - generic [ref=e427]:
+            - generic [ref=e428]: P0507
+            - generic [ref=e429]: Baja
+          - generic [ref=e430]: 📉 Motor - Ralentí
+          - generic [ref=e431]: Sistema Ralentí RPM Alto
+        - generic [ref=e432] [cursor=pointer]:
+          - generic [ref=e433]:
+            - generic [ref=e434]: P0560
+            - generic [ref=e435]: Media
+          - generic [ref=e436]: ⚡ Eléctrico
+          - generic [ref=e437]: Voltaje del Sistema
+        - generic [ref=e438] [cursor=pointer]:
+          - generic [ref=e439]:
+            - generic [ref=e440]: P0562
+            - generic [ref=e441]: Media
+          - generic [ref=e442]: ⚡ Eléctrico
+          - generic [ref=e443]: Voltaje Sistema Bajo
+        - generic [ref=e444] [cursor=pointer]:
+          - generic [ref=e445]:
+            - generic [ref=e446]: P0563
+            - generic [ref=e447]: Media
+          - generic [ref=e448]: ⚡ Eléctrico
+          - generic [ref=e449]: Voltaje Sistema Alto
+        - generic [ref=e450] [cursor=pointer]:
+          - generic [ref=e451]:
+            - generic [ref=e452]: P0600
+            - generic [ref=e453]: Crítica
+          - generic [ref=e454]: 💻 PCM
+          - generic [ref=e455]: Enlace Comunicación Serial
+        - generic [ref=e456] [cursor=pointer]:
+          - generic [ref=e457]:
+            - generic [ref=e458]: P0602
+            - generic [ref=e459]: Crítica
+          - generic [ref=e460]: 💻 PCM
+          - generic [ref=e461]: Error Programación Módulo Control
+        - generic [ref=e462] [cursor=pointer]:
+          - generic [ref=e463]:
+            - generic [ref=e464]: P0605
+            - generic [ref=e465]: Crítica
+          - generic [ref=e466]: 💻 PCM
+          - generic [ref=e467]: Memoria ROM Módulo Control
+        - generic [ref=e468] [cursor=pointer]:
+          - generic [ref=e469]:
+            - generic [ref=e470]: P0700
+            - generic [ref=e471]: Alta
+          - generic [ref=e472]: ⚙️ Transmisión
+          - generic [ref=e473]: Sistema Control Transmisión
+        - generic [ref=e474] [cursor=pointer]:
+          - generic [ref=e475]:
+            - generic [ref=e476]: P0705
+            - generic [ref=e477]: Media
+          - generic [ref=e478]: ⚙️ Transmisión
+          - generic [ref=e479]: Circuito Sensor Rango Transmisión
+        - generic [ref=e480] [cursor=pointer]:
+          - generic [ref=e481]:
+            - generic [ref=e482]: P0715
+            - generic [ref=e483]: Alta
+          - generic [ref=e484]: ⚙️ Transmisión
+          - generic [ref=e485]: Circuito Sensor Velocidad Entrada/Turbina
+        - generic [ref=e486] [cursor=pointer]:
+          - generic [ref=e487]:
+            - generic [ref=e488]: P0720
+            - generic [ref=e489]: Alta
+          - generic [ref=e490]: ⚙️ Transmisión
+          - generic [ref=e491]: Circuito Sensor Velocidad Salida
+        - generic [ref=e492] [cursor=pointer]:
+          - generic [ref=e493]:
+            - generic [ref=e494]: P0740
+            - generic [ref=e495]: Media
+          - generic [ref=e496]: ⚙️ Transmisión
+          - generic [ref=e497]: Circuito Embrague Convertidor Par
+        - generic [ref=e498] [cursor=pointer]:
+          - generic [ref=e499]:
+            - generic [ref=e500]: P0750
+            - generic [ref=e501]: Alta
+          - generic [ref=e502]: ⚙️ Transmisión
+          - generic [ref=e503]: Fallo Solenoide Cambio A
+        - generic [ref=e504] [cursor=pointer]:
+          - generic [ref=e505]:
+            - generic [ref=e506]: P0755
+            - generic [ref=e507]: Alta
+          - generic [ref=e508]: ⚙️ Transmisión
+          - generic [ref=e509]: Fallo Solenoide Cambio B
+        - generic [ref=e510] [cursor=pointer]:
+          - generic [ref=e511]:
+            - generic [ref=e512]: P0760
+            - generic [ref=e513]: Alta
+          - generic [ref=e514]: ⚙️ Transmisión
+          - generic [ref=e515]: Fallo Solenoide Cambio C
+        - generic [ref=e516] [cursor=pointer]:
+          - generic [ref=e517]:
+            - generic [ref=e518]: P0010
+            - generic [ref=e519]: Alta
+          - generic [ref=e520]: ⚙️ Motor - VVT
+          - generic [ref=e521]: Circuito Actuador Árbol Levas Admisión Abierto
+        - generic [ref=e522] [cursor=pointer]:
+          - generic [ref=e523]:
+            - generic [ref=e524]: P0011
+            - generic [ref=e525]: Alta
+          - generic [ref=e526]: ⚙️ Motor - VVT
+          - generic [ref=e527]: Sincronización Árbol Levas Admisión Sobreavanzada
+        - generic [ref=e528] [cursor=pointer]:
+          - generic [ref=e529]:
+            - generic [ref=e530]: P0012
+            - generic [ref=e531]: Alta
+          - generic [ref=e532]: ⚙️ Motor - VVT
+          - generic [ref=e533]: Sincronización Árbol Levas Admisión Retrasada
+        - generic [ref=e534] [cursor=pointer]:
+          - generic [ref=e535]:
+            - generic [ref=e536]: P0013
+            - generic [ref=e537]: Alta
+          - generic [ref=e538]: ⚙️ Motor - VVT
+          - generic [ref=e539]: Circuito Actuador Árbol Levas Escape Abierto
+        - generic [ref=e540] [cursor=pointer]:
+          - generic [ref=e541]:
+            - generic [ref=e542]: P0014
+            - generic [ref=e543]: Alta
+          - generic [ref=e544]: ⚙️ Motor - VVT
+          - generic [ref=e545]: Sincronización Árbol Levas Escape Sobreavanzada
+        - generic [ref=e546] [cursor=pointer]:
+          - generic [ref=e547]:
+            - generic [ref=e548]: P0016
+            - generic [ref=e549]: Crítica
+          - generic [ref=e550]: ⏱️ Motor - Sincronización
+          - generic [ref=e551]: Correlación Posición Cigüeñal - Árbol Levas
+        - generic [ref=e552] [cursor=pointer]:
+          - generic [ref=e553]:
+            - generic [ref=e554]: P0017
+            - generic [ref=e555]: Crítica
+          - generic [ref=e556]: ⏱️ Motor - Sincronización
+          - generic [ref=e557]: Correlación CKP-CMP Banco 1 Sensor B
+        - generic [ref=e558] [cursor=pointer]:
+          - generic [ref=e559]:
+            - generic [ref=e560]: P0030
+            - generic [ref=e561]: Media
+          - generic [ref=e562]: 📊 Emisiones - O2
+          - generic [ref=e563]: Circuito Control Calentador O2 Banco 1 Sensor 1
+        - generic [ref=e564] [cursor=pointer]:
+          - generic [ref=e565]:
+            - generic [ref=e566]: P0031
+            - generic [ref=e567]: Media
+          - generic [ref=e568]: 📊 Emisiones - O2
+          - generic [ref=e569]: Circuito Calentador O2 Bajo Banco 1 Sensor 1
+        - generic [ref=e570] [cursor=pointer]:
+          - generic [ref=e571]:
+            - generic [ref=e572]: P0032
+            - generic [ref=e573]: Media
+          - generic [ref=e574]: 📊 Emisiones - O2
+          - generic [ref=e575]: Circuito Calentador O2 Alto Banco 1 Sensor 1
+        - generic [ref=e576] [cursor=pointer]:
+          - generic [ref=e577]:
+            - generic [ref=e578]: P0036
+            - generic [ref=e579]: Media
+          - generic [ref=e580]: 📊 Emisiones - O2
+          - generic [ref=e581]: Circuito Control Calentador O2 Banco 1 Sensor 2
+        - generic [ref=e582] [cursor=pointer]:
+          - generic [ref=e583]:
+            - generic [ref=e584]: P0037
+            - generic [ref=e585]: Media
+          - generic [ref=e586]: 📊 Emisiones - O2
+          - generic [ref=e587]: Circuito Calentador O2 Bajo Banco 1 Sensor 2
+        - generic [ref=e588] [cursor=pointer]:
+          - generic [ref=e589]:
+            - generic [ref=e590]: C0035
+            - generic [ref=e591]: Media
+          - generic [ref=e592]: 🛑 ABS
+          - generic [ref=e593]: Sensor Velocidad Rueda Delantera Izquierda
+        - generic [ref=e594] [cursor=pointer]:
+          - generic [ref=e595]:
+            - generic [ref=e596]: C0040
+            - generic [ref=e597]: Media
+          - generic [ref=e598]: 🛑 ABS
+          - generic [ref=e599]: Sensor Velocidad Rueda Delantera Derecha
+        - generic [ref=e600] [cursor=pointer]:
+          - generic [ref=e601]:
+            - generic [ref=e602]: C0045
+            - generic [ref=e603]: Media
+          - generic [ref=e604]: 🛑 ABS
+          - generic [ref=e605]: Sensor Velocidad Rueda Trasera Izquierda
+        - generic [ref=e606] [cursor=pointer]:
+          - generic [ref=e607]:
+            - generic [ref=e608]: C0050
+            - generic [ref=e609]: Media
+          - generic [ref=e610]: 🛑 ABS
+          - generic [ref=e611]: Sensor Velocidad Rueda Trasera Derecha
+        - generic [ref=e612] [cursor=pointer]:
+          - generic [ref=e613]:
+            - generic [ref=e614]: C0060
+            - generic [ref=e615]: Alta
+          - generic [ref=e616]: 🛑 ABS
+          - generic [ref=e617]: Solenoide ABS Delantera Izquierda
+        - generic [ref=e618] [cursor=pointer]:
+          - generic [ref=e619]:
+            - generic [ref=e620]: C0065
+            - generic [ref=e621]: Alta
+          - generic [ref=e622]: 🛑 ABS
+          - generic [ref=e623]: Solenoide ABS Delantera Derecha
+        - generic [ref=e624] [cursor=pointer]:
+          - generic [ref=e625]:
+            - generic [ref=e626]: C0075
+            - generic [ref=e627]: Crítica
+          - generic [ref=e628]: 🛑 ABS
+          - generic [ref=e629]: Módulo Control ABS
+        - generic [ref=e630] [cursor=pointer]:
+          - generic [ref=e631]:
+            - generic [ref=e632]: C0121
+            - generic [ref=e633]: Alta
+          - generic [ref=e634]: 🛑 ABS
+          - generic [ref=e635]: Circuito Relé Válvula
+        - generic [ref=e636] [cursor=pointer]:
+          - generic [ref=e637]:
+            - generic [ref=e638]: B0001
+            - generic [ref=e639]: Crítica
+          - generic [ref=e640]: � Airbag
+          - generic [ref=e641]: Control Despliegue Conductor Etapa 1
+        - generic [ref=e642] [cursor=pointer]:
+          - generic [ref=e643]:
+            - generic [ref=e644]: B0010
+            - generic [ref=e645]: Crítica
+          - generic [ref=e646]: � Airbag
+          - generic [ref=e647]: Control Despliegue Pasajero Etapa 1
+        - generic [ref=e648] [cursor=pointer]:
+          - generic [ref=e649]:
+            - generic [ref=e650]: B0020
+            - generic [ref=e651]: Crítica
+          - generic [ref=e652]: � Airbag
+          - generic [ref=e653]: Control Despliegue Rodillas Conductor
+        - generic [ref=e654] [cursor=pointer]:
+          - generic [ref=e655]:
+            - generic [ref=e656]: B0100
+            - generic [ref=e657]: Crítica
+          - generic [ref=e658]: � Airbag
+          - generic [ref=e659]: Circuito Sensor Impacto Airbag
+        - generic [ref=e660] [cursor=pointer]:
+          - generic [ref=e661]:
+            - generic [ref=e662]: B0103
+            - generic [ref=e663]: Crítica
+          - generic [ref=e664]: � Airbag
+          - generic [ref=e665]: Circuito Sensor Impacto Voltaje Alto
+        - generic [ref=e666] [cursor=pointer]:
+          - generic [ref=e667]:
+            - generic [ref=e668]: B0104
+            - generic [ref=e669]: Crítica
+          - generic [ref=e670]: � Airbag
+          - generic [ref=e671]: Circuito Sensor Impacto Voltaje Bajo
+        - generic [ref=e672] [cursor=pointer]:
+          - generic [ref=e673]:
+            - generic [ref=e674]: B0134
+            - generic [ref=e675]: Crítica
+          - generic [ref=e676]: � Airbag
+          - generic [ref=e677]: Circuito Sensor Impacto Delantero Izquierdo
+        - generic [ref=e678] [cursor=pointer]:
+          - generic [ref=e679]:
+            - generic [ref=e680]: B0144
+            - generic [ref=e681]: Crítica
+          - generic [ref=e682]: � Airbag
+          - generic [ref=e683]: Circuito Sensor Impacto Delantero Derecho
+        - generic [ref=e684] [cursor=pointer]:
+          - generic [ref=e685]:
+            - generic [ref=e686]: B0158
+            - generic [ref=e687]: Media
+          - generic [ref=e688]: � Airbag
+          - generic [ref=e689]: Circuito Indicador Despliegue Airbag
+        - generic [ref=e690] [cursor=pointer]:
+          - generic [ref=e691]:
+            - generic [ref=e692]: B0160
+            - generic [ref=e693]: Media
+          - generic [ref=e694]: � Airbag
+          - generic [ref=e695]: Circuito Indicador Desactivación Airbag Pasajero
+        - generic [ref=e696] [cursor=pointer]:
+          - generic [ref=e697]:
+            - generic [ref=e698]: B1200
+            - generic [ref=e699]: Baja
+          - generic [ref=e700]: 📊 Instrumentos
+          - generic [ref=e701]: Fallo Circuito Sensor Combustible
+        - generic [ref=e702] [cursor=pointer]:
+          - generic [ref=e703]:
+            - generic [ref=e704]: B1317
+            - generic [ref=e705]: Media
+          - generic [ref=e706]: ⚡ Eléctrico
+          - generic [ref=e707]: Voltaje Batería Alto
+        - generic [ref=e708] [cursor=pointer]:
+          - generic [ref=e709]:
+            - generic [ref=e710]: B1318
+            - generic [ref=e711]: Media
+          - generic [ref=e712]: ⚡ Eléctrico
+          - generic [ref=e713]: Voltaje Batería Bajo
+        - generic [ref=e714] [cursor=pointer]:
+          - generic [ref=e715]:
+            - generic [ref=e716]: B1400
+            - generic [ref=e717]: Baja
+          - generic [ref=e718]: 📊 Instrumentos
+          - generic [ref=e719]: Fallo Circuito Odómetro
+        - generic [ref=e720] [cursor=pointer]:
+          - generic [ref=e721]:
+            - generic [ref=e722]: B1401
+            - generic [ref=e723]: Baja
+          - generic [ref=e724]: 📊 Instrumentos
+          - generic [ref=e725]: Circuito Odómetro Abierto
+        - generic [ref=e726] [cursor=pointer]:
+          - generic [ref=e727]:
+            - generic [ref=e728]: B1402
+            - generic [ref=e729]: Baja
+          - generic [ref=e730]: 📊 Instrumentos
+          - generic [ref=e731]: Corto Circuito Odómetro
+        - generic [ref=e732] [cursor=pointer]:
+          - generic [ref=e733]:
+            - generic [ref=e734]: B1405
+            - generic [ref=e735]: Baja
+          - generic [ref=e736]: 📊 Instrumentos
+          - generic [ref=e737]: Fallo Circuito Indicador Cambio Aceite
+        - generic [ref=e738] [cursor=pointer]:
+          - generic [ref=e739]:
+            - generic [ref=e740]: U0100
+            - generic [ref=e741]: Crítica
+          - generic [ref=e742]: 🌐 CAN Bus
+          - generic [ref=e743]: Pérdida Comunicación con ECM/PCM
+        - generic [ref=e744] [cursor=pointer]:
+          - generic [ref=e745]:
+            - generic [ref=e746]: U0101
+            - generic [ref=e747]: Alta
+          - generic [ref=e748]: 🌐 CAN Bus
+          - generic [ref=e749]: Pérdida Comunicación con TCM
+        - generic [ref=e750] [cursor=pointer]:
+          - generic [ref=e751]:
+            - generic [ref=e752]: U0121
+            - generic [ref=e753]: Alta
+          - generic [ref=e754]: 🌐 CAN Bus
+          - generic [ref=e755]: Pérdida Comunicación con Módulo ABS
+        - generic [ref=e756] [cursor=pointer]:
+          - generic [ref=e757]:
+            - generic [ref=e758]: U0126
+            - generic [ref=e759]: Media
+          - generic [ref=e760]: 🌐 CAN Bus
+          - generic [ref=e761]: Pérdida Comunicación con Sensor Ángulo Dirección
+        - generic [ref=e762] [cursor=pointer]:
+          - generic [ref=e763]:
+            - generic [ref=e764]: U0131
+            - generic [ref=e765]: Alta
+          - generic [ref=e766]: 🌐 CAN Bus
+          - generic [ref=e767]: Pérdida Comunicación con Módulo Dirección Asistida
+        - generic [ref=e768] [cursor=pointer]:
+          - generic [ref=e769]:
+            - generic [ref=e770]: U0140
+            - generic [ref=e771]: Alta
+          - generic [ref=e772]: 🌐 CAN Bus
+          - generic [ref=e773]: Pérdida Comunicación con Módulo Carrocería
+        - generic [ref=e774] [cursor=pointer]:
+          - generic [ref=e775]:
+            - generic [ref=e776]: U0151
+            - generic [ref=e777]: Crítica
+          - generic [ref=e778]: 🌐 CAN Bus
+          - generic [ref=e779]: Pérdida Comunicación con Módulo Restricciones
+        - generic [ref=e780] [cursor=pointer]:
+          - generic [ref=e781]:
+            - generic [ref=e782]: U0155
+            - generic [ref=e783]: Media
+          - generic [ref=e784]: 🌐 CAN Bus
+          - generic [ref=e785]: Pérdida Comunicación con Cluster Instrumentos
+        - generic [ref=e786] [cursor=pointer]:
+          - generic [ref=e787]:
+            - generic [ref=e788]: U0160
+            - generic [ref=e789]: Baja
+          - generic [ref=e790]: 🌐 CAN Bus
+          - generic [ref=e791]: Pérdida Comunicación con Módulo Alertas Audibles
+        - generic [ref=e792] [cursor=pointer]:
+          - generic [ref=e793]:
+            - generic [ref=e794]: U0164
+            - generic [ref=e795]: Baja
+          - generic [ref=e796]: 🌐 CAN Bus
+          - generic [ref=e797]: Pérdida Comunicación con Módulo HVAC
+        - generic [ref=e798] [cursor=pointer]:
+          - generic [ref=e799]:
+            - generic [ref=e800]: U0232
+            - generic [ref=e801]: Media
+          - generic [ref=e802]: 🌐 CAN Bus
+          - generic [ref=e803]: Pérdida Comunicación con Módulo Punto Ciego
+        - generic [ref=e804] [cursor=pointer]:
+          - generic [ref=e805]:
+            - generic [ref=e806]: U0401
+            - generic [ref=e807]: Alta
+          - generic [ref=e808]: 🌐 CAN Bus
+          - generic [ref=e809]: Datos Inválidos Recibidos de ECM/PCM
+        - generic [ref=e810] [cursor=pointer]:
+          - generic [ref=e811]:
+            - generic [ref=e812]: U0415
+            - generic [ref=e813]: Alta
+          - generic [ref=e814]: 🌐 CAN Bus
+          - generic [ref=e815]: Datos Inválidos Recibidos de Módulo ABS
+        - generic [ref=e816] [cursor=pointer]:
+          - generic [ref=e817]:
+            - generic [ref=e818]: U0443
+            - generic [ref=e819]: Media
+          - generic [ref=e820]: 🌐 CAN Bus
+          - generic [ref=e821]: Datos Inválidos Recibidos de Módulo Carrocería
+        - generic [ref=e822] [cursor=pointer]:
+          - generic [ref=e823]:
+            - generic [ref=e824]: U1000
+            - generic [ref=e825]: Alta
+          - generic [ref=e826]: 🌐 CAN Bus
+          - generic [ref=e827]: Fallo Comunicación Class 2
+        - generic [ref=e828] [cursor=pointer]:
+          - generic [ref=e829]:
+            - generic [ref=e830]: U1064
+            - generic [ref=e831]: Alta
+          - generic [ref=e832]: 🌐 CAN Bus
+          - generic [ref=e833]: Pérdida Comunicación con Módulo Carrocería
+        - generic [ref=e834] [cursor=pointer]:
+          - generic [ref=e835]:
+            - generic [ref=e836]: U1073
+            - generic [ref=e837]: Crítica
+          - generic [ref=e838]: 🌐 CAN Bus
+          - generic [ref=e839]: Bus Comunicación ECM Desconectado
+        - generic [ref=e840] [cursor=pointer]:
+          - generic [ref=e841]:
+            - generic [ref=e842]: U1096
+            - generic [ref=e843]: Media
+          - generic [ref=e844]: 🌐 CAN Bus
+          - generic [ref=e845]: Pérdida Comunicación con Cluster Instrumentos
+        - generic [ref=e846] [cursor=pointer]:
+          - generic [ref=e847]:
+            - generic [ref=e848]: U1300
+            - generic [ref=e849]: Alta
+          - generic [ref=e850]: 🌐 CAN Bus
+          - generic [ref=e851]: Corto Class 2 a Masa
+        - generic [ref=e852] [cursor=pointer]:
+          - generic [ref=e853]:
+            - generic [ref=e854]: U1301
+            - generic [ref=e855]: Alta
+          - generic [ref=e856]: 🌐 CAN Bus
+          - generic [ref=e857]: Corto Class 2 a Batería
+```

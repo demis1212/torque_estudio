@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "2026-04-27T02:21:07.001Z",
+    "level": "warning",
+    "message": "Posible IDOR en: /users/edit/1",
+    "elapsed": 4136
+  },
+  {
+    "timestamp": "2026-04-27T02:21:08.099Z",
+    "level": "warning",
+    "message": "Posible IDOR en: /users/edit/2",
+    "elapsed": 5234
+  },
+  {
+    "timestamp": "2026-04-27T02:21:09.151Z",
+    "level": "warning",
+    "message": "Posible IDOR en: /users/edit/999",
+    "elapsed": 6286
+  },
+  {
+    "timestamp": "2026-04-27T02:21:10.208Z",
+    "level": "warning",
+    "message": "Posible IDOR en: /work-orders/edit/1",
+    "elapsed": 7343
+  },
+  {
+    "timestamp": "2026-04-27T02:21:11.269Z",
+    "level": "warning",
+    "message": "Posible IDOR en: /clients/edit/1",
+    "elapsed": 8404
+  }
+]

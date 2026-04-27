@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-04-27T00:55:40.973Z",
+    "level": "info",
+    "message": "🔍 Iniciando crawler desde: http://localhost/torque/dashboard",
+    "elapsed": 0
+  },
+  {
+    "timestamp": "2026-04-27T00:55:40.974Z",
+    "level": "info",
+    "message": "📄 [1/150] Analizando: http://localhost/torque/dashboard",
+    "elapsed": 1
+  },
+  {
+    "timestamp": "2026-04-27T00:55:45.487Z",
+    "level": "info",
+    "message": "🔗 Encontrados 24 links en http://localhost/torque/dashboard",
+    "elapsed": 4514
+  },
+  {
+    "timestamp": "2026-04-27T00:55:45.487Z",
+    "level": "info",
+    "message": "✅ Crawler completado. Total links verificados: 0",
+    "elapsed": 4514
+  }
+]

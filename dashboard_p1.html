@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Torque Estudio - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb786",
+                        "tertiary-fixed": "#ffdcc6",
+                        "secondary-fixed": "#d4e4fa",
+                        "background": "#10131a",
+                        "on-error": "#690005",
+                        "inverse-primary": "#005ac2",
+                        "inverse-on-surface": "#2e3038",
+                        "on-primary": "#002e6a",
+                        "surface-dim": "#10131a",
+                        "surface-container-highest": "#32353c",
+                        "on-tertiary-container": "#461f00",
+                        "on-background": "#e1e2ec",
+                        "surface-container-low": "#191b23",
+                        "primary-container": "#4d8eff",
+                        "tertiary": "#ffb786",
+                        "on-primary-container": "#00285d",
+                        "on-tertiary-fixed": "#311400",
+                        "surface-bright": "#363941",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#e1e2ec",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "surface-container-lowest": "#0b0e15",
+                        "outline": "#8c909f",
+                        "on-secondary": "#233143",
+                        "secondary-container": "#39485a",
+                        "surface-variant": "#32353c",
+                        "on-tertiary": "#502400",
+                        "surface-container-high": "#272a31",
+                        "primary": "#adc6ff",
+                        "surface-tint": "#adc6ff",
+                        "on-primary-fixed": "#001a42",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface-container": "#1d2027",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#a7b6cc",
+                        "tertiary-container": "#df7412",
+                        "secondary": "#b9c8de",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#d8e2ff",
+                        "outline-variant": "#424754",
+                        "on-surface": "#e1e2ec",
+                        "surface": "#10131a",
+                        "on-surface-variant": "#c2c6d6",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#723600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin": "32px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "xl": "40px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "h2": ["Inter"],
+                        "code": ["Space Grotesk"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F1115;
+            color: #e1e2ec;
+        }
+        .glass-panel {
+            background: rgba(23, 26, 33, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        }
+        .antigraviti-glow {
+            box-shadow: 0 0 20px rgba(77, 142, 255, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-[#171A21] shadow-2xl border-r border-white/5 flex flex-col z-50">
+<div class="p-8">
+<h1 class="text-blue-500 font-black text-xl tracking-tighter uppercase font-label-caps">Torque Estudio</h1>
+<p class="text-[10px] text-slate-500 font-bold tracking-[0.2em] mt-1">AUTOMOTIVE ERP</p>
+</div>
+<nav class="flex-1 overflow-y-auto py-4">
+<div class="px-6 mb-4">
+<p class="font-inter text-xs uppercase tracking-widest font-semibold text-slate-600 mb-2">Management</p>
+</div>
+<a class="bg-blue-500/10 text-blue-500 border-r-2 border-blue-500 py-3 px-6 flex items-center gap-3 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">Dashboard</span>
+</a>
+<a class="text-slate-500 py-3 px-6 flex items-center gap-3 hover:text-slate-200 hover:bg-white/5 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">Customers</span>
+</a>
+<a class="text-slate-500 py-3 px-6 flex items-center gap-3 hover:text-slate-200 hover:bg-white/5 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">Vehicles</span>
+</a>
+<a class="text-slate-500 py-3 px-6 flex items-center gap-3 hover:text-slate-200 hover:bg-white/5 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">Work Orders</span>
+</a>
+<a class="text-slate-500 py-3 px-6 flex items-center gap-3 hover:text-slate-200 hover:bg-white/5 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">Agenda</span>
+</a>
+<div class="px-6 mt-6 mb-4">
+<p class="font-inter text-xs uppercase tracking-widest font-semibold text-slate-600 mb-2">Operations</p>
+</div>
+<a class="text-slate-500 py-3 px-6 flex items-center gap-3 hover:text-slate-200 hover:bg-white/5 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">Inventory</span>
+</a>
+<a class="text-slate-500 py-3 px-6 flex items-center gap-3 hover:text-slate-200 hover:bg-white/5 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="handyman">handyman</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">Tools</span>
+</a>
+<a class="text-slate-500 py-3 px-6 flex items-center gap-3 hover:text-slate-200 hover:bg-white/5 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">AI Diagnosis</span>
+</a>
+<a class="text-slate-500 py-3 px-6 flex items-center gap-3 hover:text-slate-200 hover:bg-white/5 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-inter text-xs uppercase tracking-widest font-semibold">Finance</span>
+</a>
+</nav>
+<div class="p-6 border-t border-white/5">
+<button class="w-full bg-blue-500 text-on-primary-fixed font-label-caps py-4 rounded shadow-lg shadow-blue-500/20 active:scale-95 transition-all">
+                NEW WORK ORDER
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 flex items-center justify-between px-8 z-40 bg-[#171A21]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 material-symbols-outlined" data-icon="search">search</span>
+<input class="bg-[#0F1115] border-none rounded-lg pl-10 pr-4 py-2 text-sm text-on-surface-variant w-64 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="Search CMD+K" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all active:scale-98">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all active:scale-98">
+<span class="material-symbols-outlined" data-icon="settings_night_sight">settings_night_sight</span>
+</button>
+<div class="h-8 w-px bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="font-inter text-sm font-bold text-white">Admin User</p>
+<p class="font-inter text-[10px] text-blue-500 font-bold uppercase tracking-widest">Workshop Mgr</p>
+</div>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-blue-500/30 object-cover" data-alt="professional portrait of a man with short hair and a clean-shaven face in a modern office setting with cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdnuhxxwNoVP50WgnuaoG4PzgjuHFS2KJNY2DWiUovJ861uyM-cZm86XTKw7izD-tXGxHEGY-29QAu2JKLiNegOESX9ufjjNj0Dt4RAUsN53mDMk48fWv8eJW3a8ganNz1t1iPVod6WrBX7pOPwpaBYpljVVPEOEDAC1wYFavMTMPwJgjol82xHy8SzRic1U6H7cbzfuyODq--LQYae7xocrdKI_oPVM1EcDNZ6J1vu3M9AmWEzAaPLyGkj2jsR1uhwgFjFy6whLHZ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-8 min-h-screen bg-[#0F1115]">
+<!-- Dashboard Header -->
+<div class="mb-10">
+<h2 class="font-h1 text-h1 text-on-surface mb-1">Operational Overview</h2>
+<p class="text-on-surface-variant text-body-sm">Tracking real-time performance across the workshop floor.</p>
+</div>
+<!-- Top Section: 6 KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-gutter mb-gutter">
+<!-- KPI 1 -->
+<div class="glass-panel p-md rounded-xl antigraviti-glow">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-500 material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full">+12%</span>
+</div>
+<p class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Sales</p>
+<p class="text-h2 font-h2 text-white">$45.2k</p>
+</div>
+<!-- KPI 2 -->
+<div class="glass-panel p-md rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-500 material-symbols-outlined" data-icon="directions_car">directions_car</span>
+</div>
+<p class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Vehicles in Shop</p>
+<p class="text-h2 font-h2 text-white">18</p>
+</div>
+<!-- KPI 3 -->
+<div class="glass-panel p-md rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-500 material-symbols-outlined" data-icon="assignment">assignment</span>
+</div>
+<p class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Active OTs</p>
+<p class="text-h2 font-h2 text-white">12</p>
+</div>
+<!-- KPI 4 -->
+<div class="glass-panel p-md rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-orange-400 material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<p class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Low Stock</p>
+<p class="text-h2 font-h2 text-white">5 items</p>
+</div>
+<!-- KPI 5 -->
+<div class="glass-panel p-md rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-500 material-symbols-outlined" data-icon="engineering">engineering</span>
+</div>
+<p class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Active Techs</p>
+<p class="text-h2 font-h2 text-white">8</p>
+</div>
+<!-- KPI 6 -->
+<div class="glass-panel p-md rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-500 material-symbols-outlined" data-icon="person_add">person_add</span>
+</div>
+<p class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">New Customers</p>
+<p class="text-h2 font-h2 text-white">4</p>
+</div>
+</div>
+<!-- Middle Section: Charts -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-gutter">
+<!-- Large Monthly Revenue Chart -->
+<div class="lg:col-span-2 glass-panel p-lg rounded-xl flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-h3 text-h3 text-white">Monthly Revenue</h3>
+<p class="text-body-sm text-on-surface-variant">Year-to-date financial progression</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-white/5 px-3 py-1.5 rounded text-xs font-bold text-slate-400 border border-white/10">WEEK</button>
+<button class="bg-blue-500/20 px-3 py-1.5 rounded text-xs font-bold text-blue-500 border border-blue-500/20">MONTH</button>
+</div>
+</div>
+<!-- Simulated Chart -->
+<div class="flex-1 w-full flex items-end gap-1 relative min-h-[280px]">
+<!-- Chart Background Grid -->
+<div class="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none">
+<div class="border-b border-white/5 w-full"></div>
+<div class="border-b border-white/5 w-full"></div>
+<div class="border-b border-white/5 w-full"></div>
+<div class="border-b border-white/5 w-full"></div>
+<div class="border-b border-white/5 w-full"></div>
+</div>
+<!-- Chart Bars/Lines Simulation (Visual only) -->
+<div class="flex-1 h-[60%] bg-gradient-to-t from-blue-500/40 to-blue-500/10 border-t-2 border-blue-500 rounded-t-sm relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">$32k</div>
+</div>
+<div class="flex-1 h-[75%] bg-gradient-to-t from-blue-500/40 to-blue-500/10 border-t-2 border-blue-500 rounded-t-sm relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">$41k</div>
+</div>
+<div class="flex-1 h-[45%] bg-gradient-to-t from-blue-500/40 to-blue-500/10 border-t-2 border-blue-500 rounded-t-sm relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">$28k</div>
+</div>
+<div class="flex-1 h-[90%] bg-gradient-to-t from-blue-500/40 to-blue-500/10 border-t-2 border-blue-500 rounded-t-sm relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">$48k</div>
+</div>
+<div class="flex-1 h-[65%] bg-gradient-to-t from-blue-500/40 to-blue-500/10 border-t-2 border-blue-500 rounded-t-sm relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">$35k</div>
+</div>
+<div class="flex-1 h-[85%] bg-gradient-to-t from-blue-500/40 to-blue-500/10 border-t-2 border-blue-500 rounded-t-sm relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">$45.2k</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-slate-500 tracking-widest font-label-caps">
+<span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span>
+</div>
+</div>
+<!-- Technician Productivity Bar Chart -->
+<div class="glass-panel p-lg rounded-xl flex flex-col">
+<div class="mb-8">
+<h3 class="font-h3 text-h3 text-white">Tech Productivity</h3>
+<p class="text-body-sm text-on-surface-variant">Efficiency per bay</p>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs text-on-surface font-semibold">
+<span>Marcus V.</span>
+<span class="text-blue-500">94%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs text-on-surface font-semibold">
+<span>Elena R.</span>
+<span class="text-blue-500">88%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs text-on-surface font-semibold">
+<span>Julian S.</span>
+<span class="text-blue-500">82%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs text-on-surface font-semibold">
+<span>Sara L.</span>
+<span class="text-blue-500">79%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 79%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs text-on-surface font-semibold">
+<span>David K.</span>
+<span class="text-blue-500">71%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 71%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Feed and Calendar -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Recent System Activity -->
+<div class="glass-panel rounded-xl overflow-hidden">
+<div class="p-lg border-b border-white/5 bg-white/5 flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-white">Recent System Activity</h3>
+<span class="text-blue-500 material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div class="p-lg space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
+<span class="text-blue-500 material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-white">OT #8824 Completed</p>
+<p class="text-xs text-on-surface-variant">Porsche 911 GT3 - Engine Service finalized by Marcus V.</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">2 mins ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-orange-400/10 flex items-center justify-center shrink-0">
+<span class="text-orange-400 material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-white">New Parts Request</p>
+<p class="text-xs text-on-surface-variant">Brembo brake pads requested for OT #8829.</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">15 mins ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
+<span class="text-blue-500 material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-white">New Customer Added</p>
+<p class="text-xs text-on-surface-variant">Robert Chen registered with Tesla Model S Plaid.</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">1 hour ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Calendar Widget -->
+<div class="glass-panel rounded-xl overflow-hidden">
+<div class="p-lg border-b border-white/5 bg-white/5 flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-white">Quick Calendar</h3>
+<div class="flex gap-4">
+<span class="text-slate-500 material-symbols-outlined cursor-pointer hover:text-white" data-icon="chevron_left">chevron_left</span>
+<span class="text-white font-bold text-sm">October 2023</span>
+<span class="text-slate-500 material-symbols-outlined cursor-pointer hover:text-white" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<div class="p-lg">
+<div class="grid grid-cols-7 gap-2 text-center text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">
+<div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+</div>
+<div class="grid grid-cols-7 gap-2">
+<div class="aspect-square flex items-center justify-center text-xs text-slate-700">24</div>
+<div class="aspect-square flex items-center justify-center text-xs text-slate-700">25</div>
+<div class="aspect-square flex items-center justify-center text-xs text-slate-700">26</div>
+<div class="aspect-square flex items-center justify-center text-xs text-slate-700">27</div>
+<div class="aspect-square flex items-center justify-center text-xs text-slate-700">28</div>
+<div class="aspect-square flex items-center justify-center text-xs text-slate-700">29</div>
+<div class="aspect-square flex items-center justify-center text-xs text-slate-700">30</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">1</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">2</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">3</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white border border-blue-500/20 rounded bg-blue-500/10">4</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">5</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white relative">
+                            6
+                            <span class="absolute bottom-1 w-1 h-1 bg-blue-500 rounded-full"></span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">7</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">8</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">9</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white font-black bg-blue-500 rounded text-on-primary-fixed antigraviti-glow">10</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">11</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white relative">
+                            12
+                            <span class="absolute bottom-1 w-1 h-1 bg-orange-400 rounded-full"></span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">13</div>
+<div class="aspect-square flex items-center justify-center text-xs text-white">14</div>
+</div>
+<div class="mt-8 space-y-3">
+<div class="flex items-center gap-3 bg-white/5 p-3 rounded-lg border-l-4 border-blue-500">
+<div class="text-center w-8">
+<p class="text-[10px] text-slate-500 font-bold uppercase">Oct</p>
+<p class="text-sm font-bold text-white">10</p>
+</div>
+<div>
+<p class="text-xs font-bold text-white">Inventory Audit</p>
+<p class="text-[10px] text-on-surface-variant">09:00 AM - Floor 2</p>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-white/5 p-3 rounded-lg border-l-4 border-orange-400">
+<div class="text-center w-8">
+<p class="text-[10px] text-slate-500 font-bold uppercase">Oct</p>
+<p class="text-sm font-bold text-white">12</p>
+</div>
+<div>
+<p class="text-xs font-bold text-white">Team Sync - AI Diagnosis</p>
+<p class="text-[10px] text-on-surface-variant">04:30 PM - Virtual</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button for Dashboard Context -->
+<div class="fixed bottom-10 right-10">
+<button class="w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/40 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</body></html>

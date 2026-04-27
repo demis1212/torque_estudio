@@ -1,0 +1,519 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\victuspc\\Desktop\\Nueva carpeta\\tests\\complete-suite\\playwright.config.ts",
+    "rootDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite",
+        "testIgnore": [],
+        "testMatch": [
+          "/^(?!.*responsive).*\\.spec\\.ts$/"
+        ],
+        "timeout": 600000
+      },
+      {
+        "outputDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "security",
+        "name": "security",
+        "testDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite",
+        "testIgnore": [],
+        "testMatch": [
+          "/security\\.spec\\.ts$/"
+        ],
+        "timeout": 600000
+      },
+      {
+        "outputDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite",
+        "testIgnore": [],
+        "testMatch": [
+          "/api\\.spec\\.ts$/"
+        ],
+        "timeout": 600000
+      },
+      {
+        "outputDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chrome",
+        "name": "mobile-chrome",
+        "testDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite",
+        "testIgnore": [],
+        "testMatch": [
+          "/responsive\\.spec\\.ts$/"
+        ],
+        "timeout": 600000
+      },
+      {
+        "outputDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "tablet-safari",
+        "name": "tablet-safari",
+        "testDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite",
+        "testIgnore": [],
+        "testMatch": [
+          "/responsive\\.spec\\.ts$/"
+        ],
+        "timeout": 600000
+      },
+      {
+        "outputDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-safari",
+        "name": "mobile-safari",
+        "testDir": "C:/Users/victuspc/Desktop/Nueva carpeta/tests/complete-suite",
+        "testIgnore": [],
+        "testMatch": [
+          "/responsive\\.spec\\.ts$/"
+        ],
+        "timeout": 600000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "test-results/complete-report",
+          "attachmentsBaseURL": "https://ci.torque.studio/artifacts/"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/audit-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/junit-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accessibility.spec.ts",
+      "file": "accessibility.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "♿ Módulo Accesibilidad (A11y)",
+          "file": "accessibility.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "A11Y.1 - Login - Violaciones de accesibilidad",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 600000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12452,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[INFO] Violaciones encontradas: 1 \n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-27T00:48:36.195Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-6c18c13c7d048e90760a",
+              "file": "accessibility.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "A11Y.2 - Dashboard - Accesibilidad",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 600000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 15382,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[INFO] Iniciando proceso de login \n"
+                        },
+                        {
+                          "text": "[INFO] Login exitoso \n"
+                        },
+                        {
+                          "text": "[WARNING] Dashboard: 1 violaciones de accesibilidad \n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-27T00:48:36.233Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-abdbecc2488faa5f2891",
+              "file": "accessibility.spec.ts",
+              "line": 40,
+              "column": 7
+            },
+            {
+              "title": "A11Y.3 - Contraste de colores",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 600000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 22170,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[INFO] Iniciando proceso de login \n"
+                        },
+                        {
+                          "text": "[INFO] Login exitoso \n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-27T00:48:36.241Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-40b75229cb113f84d3e1",
+              "file": "accessibility.spec.ts",
+              "line": 76,
+              "column": 7
+            },
+            {
+              "title": "A11Y.4 - Navegación por teclado",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 600000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7070,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[INFO] Iniciando proceso de login \n"
+                        },
+                        {
+                          "text": "[INFO] Login exitoso \n"
+                        },
+                        {
+                          "text": "[INFO] Elementos focusables: 28 \n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-27T00:48:51.015Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-9bc2765102cb2bda43d7",
+              "file": "accessibility.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "A11Y.5 - Atributos ARIA",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 600000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6247,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[INFO] Iniciando proceso de login \n"
+                        },
+                        {
+                          "text": "[INFO] Login exitoso \n"
+                        },
+                        {
+                          "text": "[INFO] Elementos con ARIA: 0 \n"
+                        },
+                        {
+                          "text": "[INFO] Botones sin texto/label: 0 \n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-27T00:48:54.029Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-4c99fc5100c2e73f8f80",
+              "file": "accessibility.spec.ts",
+              "line": 142,
+              "column": 7
+            },
+            {
+              "title": "A11Y.6 - Formularios - Labels y errores",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 600000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5559,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[INFO] Iniciando proceso de login \n"
+                        },
+                        {
+                          "text": "[INFO] Login exitoso \n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-27T00:48:58.108Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-28e158b5d9c46ea83598",
+              "file": "accessibility.spec.ts",
+              "line": 174,
+              "column": 7
+            },
+            {
+              "title": "A11Y.7 - Skip links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 600000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2828,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[INFO] ⚠️ No se encontró skip link (recomendado para a11y) \n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-27T00:49:00.298Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-a6278bf0df78db1107ba",
+              "file": "accessibility.spec.ts",
+              "line": 217,
+              "column": 7
+            },
+            {
+              "title": "A11Y.8 - Headings estructurados",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 600000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 6169,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[INFO] Iniciando proceso de login \n"
+                        },
+                        {
+                          "text": "[INFO] Login exitoso \n"
+                        },
+                        {
+                          "text": "[INFO] Headings: 1 H1, 1 H2 \n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-27T00:49:00.807Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-14bdbe5308073d302252",
+              "file": "accessibility.spec.ts",
+              "line": 233,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-27T00:48:34.485Z",
+    "duration": 32635.963,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "timestamp": "2026-04-27T02:18:13.550Z",
+    "level": "info",
+    "message": "GET: HTTP 401",
+    "elapsed": 8
+  },
+  {
+    "timestamp": "2026-04-27T02:18:13.556Z",
+    "level": "info",
+    "message": "POST: HTTP 200",
+    "elapsed": 14
+  },
+  {
+    "timestamp": "2026-04-27T02:18:13.562Z",
+    "level": "info",
+    "message": "PUT: HTTP 200",
+    "elapsed": 21
+  },
+  {
+    "timestamp": "2026-04-27T02:18:13.569Z",
+    "level": "info",
+    "message": "DELETE: HTTP 200",
+    "elapsed": 27
+  },
+  {
+    "timestamp": "2026-04-27T02:18:13.569Z",
+    "level": "warning",
+    "message": "DELETE permitido sin auth",
+    "elapsed": 27
+  },
+  {
+    "timestamp": "2026-04-27T02:18:13.577Z",
+    "level": "info",
+    "message": "PATCH: HTTP 200",
+    "elapsed": 35
+  }
+]

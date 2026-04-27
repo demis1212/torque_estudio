@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-04-27T00:57:53.518Z",
+    "level": "info",
+    "message": "Tiempo carga formulario: 734ms",
+    "elapsed": 3846
+  },
+  {
+    "timestamp": "2026-04-27T00:57:53.543Z",
+    "level": "info",
+    "message": "Tiempo interacción: 25ms",
+    "elapsed": 3871
+  }
+]

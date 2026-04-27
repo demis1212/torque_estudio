@@ -1,0 +1,63 @@
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="32.635963">
+<testsuite name="accessibility.spec.ts" timestamp="2026-04-27T00:48:34.791Z" hostname="chromium" tests="8" failures="0" skipped="0" time="77.877" errors="0">
+<testcase name="♿ Módulo Accesibilidad (A11y) › A11Y.1 - Login - Violaciones de accesibilidad" classname="accessibility.spec.ts" time="12.452">
+<system-out>
+<![CDATA[[INFO] Violaciones encontradas: 1 
+]]>
+</system-out>
+</testcase>
+<testcase name="♿ Módulo Accesibilidad (A11y) › A11Y.2 - Dashboard - Accesibilidad" classname="accessibility.spec.ts" time="15.382">
+<system-out>
+<![CDATA[[INFO] Iniciando proceso de login 
+[INFO] Login exitoso 
+[WARNING] Dashboard: 1 violaciones de accesibilidad 
+]]>
+</system-out>
+</testcase>
+<testcase name="♿ Módulo Accesibilidad (A11y) › A11Y.3 - Contraste de colores" classname="accessibility.spec.ts" time="22.17">
+<system-out>
+<![CDATA[[INFO] Iniciando proceso de login 
+[INFO] Login exitoso 
+]]>
+</system-out>
+</testcase>
+<testcase name="♿ Módulo Accesibilidad (A11y) › A11Y.4 - Navegación por teclado" classname="accessibility.spec.ts" time="7.07">
+<system-out>
+<![CDATA[[INFO] Iniciando proceso de login 
+[INFO] Login exitoso 
+[INFO] Elementos focusables: 28 
+]]>
+</system-out>
+</testcase>
+<testcase name="♿ Módulo Accesibilidad (A11y) › A11Y.5 - Atributos ARIA" classname="accessibility.spec.ts" time="6.247">
+<system-out>
+<![CDATA[[INFO] Iniciando proceso de login 
+[INFO] Login exitoso 
+[INFO] Elementos con ARIA: 0 
+[INFO] Botones sin texto/label: 0 
+]]>
+</system-out>
+</testcase>
+<testcase name="♿ Módulo Accesibilidad (A11y) › A11Y.6 - Formularios - Labels y errores" classname="accessibility.spec.ts" time="5.559">
+<system-out>
+<![CDATA[[INFO] Iniciando proceso de login 
+[INFO] Login exitoso 
+]]>
+</system-out>
+</testcase>
+<testcase name="♿ Módulo Accesibilidad (A11y) › A11Y.7 - Skip links" classname="accessibility.spec.ts" time="2.828">
+<system-out>
+<![CDATA[[INFO] ⚠️ No se encontró skip link (recomendado para a11y) 
+]]>
+</system-out>
+</testcase>
+<testcase name="♿ Módulo Accesibilidad (A11y) › A11Y.8 - Headings estructurados" classname="accessibility.spec.ts" time="6.169">
+<system-out>
+<![CDATA[[INFO] Iniciando proceso de login 
+[INFO] Login exitoso 
+[INFO] Headings: 1 H1, 1 H2 
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

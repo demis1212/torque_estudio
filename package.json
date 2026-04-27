@@ -1,0 +1,23 @@
+{
+  "name": "nueva-carpeta",
+  "version": "1.0.0",
+  "description": "Sistema ERP para gestión de taller automotriz desarrollado con PHP puro, MySQL y arquitectura MVC.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.11.2"
+  }
+}

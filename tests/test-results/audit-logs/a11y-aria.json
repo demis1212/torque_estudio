@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-04-27T02:18:36.445Z",
+    "level": "info",
+    "message": "Elementos con ARIA: 0",
+    "elapsed": 4091
+  },
+  {
+    "timestamp": "2026-04-27T02:18:36.455Z",
+    "level": "info",
+    "message": "Botones sin texto/label: 0",
+    "elapsed": 4101
+  }
+]

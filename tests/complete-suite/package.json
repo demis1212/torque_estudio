@@ -1,0 +1,37 @@
+{
+  "name": "torque-studio-audit-suite",
+  "version": "1.0.0",
+  "description": "Suite completa de auditoría para Torque Studio ERP",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright test --reporter=html && playwright show-report",
+    "test:auth": "playwright test auth.spec.ts",
+    "test:security": "playwright test security.spec.ts",
+    "test:api": "playwright test api.spec.ts",
+    "test:a11y": "playwright test accessibility.spec.ts",
+    "test:perf": "playwright test stress.spec.ts",
+    "test:full": "playwright test full-audit.spec.ts",
+    "audit": "playwright test --grep 'PASADA'",
+    "lint": "tsc --noEmit",
+    "install:browsers": "playwright install"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "audit",
+    "qa",
+    "pentesting",
+    "torque-studio"
+  ],
+  "author": "QA Engineer",
+  "license": "MIT",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.8.2",
+    "@playwright/test": "^1.40.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {}
+}

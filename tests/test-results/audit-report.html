@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Torque Studio - Reporte de Auditoría</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 20px; background: #0f1419; color: #e8eaf2; }
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 { background: linear-gradient(135deg, #8ab4f8, #4d8eff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+    .stat-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; }
+    .stat-number { font-size: 2.5rem; font-weight: bold; }
+    .critical { color: #dc2626; }
+    .high { color: #ea580c; }
+    .medium { color: #ca8a04; }
+    .low { color: #16a34a; }
+    .bug-list { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; }
+    .bug-item { border-left: 4px solid; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.02); border-radius: 0 8px 8px 0; }
+    .bug-id { font-family: monospace; color: #9aa3b2; font-size: 0.85rem; }
+    .bug-title { font-size: 1.1rem; font-weight: 600; margin: 5px 0; }
+    .bug-desc { color: #9aa3b2; font-size: 0.95rem; }
+    .timestamp { font-size: 0.8rem; color: #6b7280; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🛡️ Torque Studio - Reporte de Auditoría</h1>
+    <p>Generado: 26-04-2026, 10:21:11 p. m.</p>
+    <p>Total Bugs Encontrados: 0</p>
+  </div>
+  
+  <div class="summary">
+    <div class="stat-card">
+      <div class="stat-number critical">0</div>
+      <div>Críticos</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number high">0</div>
+      <div>Altos</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number medium">0</div>
+      <div>Medios</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number low">0</div>
+      <div>Bajos</div>
+    </div>
+  </div>
+
+  <div class="bug-list">
+    <h2>🐛 Bugs Detallados</h2>
+    
+  </div>
+</body>
+</html>

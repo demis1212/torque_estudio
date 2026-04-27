@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": "2026-04-27T00:55:31.871Z",
+    "level": "info",
+    "message": "Login: 975ms",
+    "elapsed": 975
+  },
+  {
+    "timestamp": "2026-04-27T00:55:32.634Z",
+    "level": "info",
+    "message": "Dashboard: 763ms",
+    "elapsed": 1738
+  },
+  {
+    "timestamp": "2026-04-27T00:55:33.355Z",
+    "level": "info",
+    "message": "Clientes: 721ms",
+    "elapsed": 2459
+  },
+  {
+    "timestamp": "2026-04-27T00:55:34.297Z",
+    "level": "info",
+    "message": "Órdenes: 942ms",
+    "elapsed": 3401
+  },
+  {
+    "timestamp": "2026-04-27T00:55:34.310Z",
+    "level": "info",
+    "message": "Métricas de performance",
+    "details": {
+      "navigation": {
+        "dns": 0,
+        "tcp": 0,
+        "ttfb": 4.300000011920929,
+        "download": 1.0999999642372131,
+        "dom": 406.69999998807907,
+        "load": 426.30000001192093
+      },
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
+          "duration": 0,
+          "size": 0
+        },
+        {
+          "name": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+          "duration": 0,
+          "size": 0
+        }
+      ]
+    },
+    "elapsed": 3414
+  }
+]

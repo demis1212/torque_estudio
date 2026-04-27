@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-04-27T02:20:23.219Z",
+    "level": "info",
+    "message": "No hay breadcrumbs en /clients",
+    "elapsed": 4466
+  },
+  {
+    "timestamp": "2026-04-27T02:20:24.294Z",
+    "level": "info",
+    "message": "No hay breadcrumbs en /work-orders",
+    "elapsed": 5541
+  },
+  {
+    "timestamp": "2026-04-27T02:20:25.382Z",
+    "level": "info",
+    "message": "No hay breadcrumbs en /parts",
+    "elapsed": 6629
+  },
+  {
+    "timestamp": "2026-04-27T02:20:26.826Z",
+    "level": "info",
+    "message": "No hay breadcrumbs en /reports",
+    "elapsed": 8073
+  }
+]

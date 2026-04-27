@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-04-27T02:21:57.276Z",
+    "level": "info",
+    "message": "CSRF Token en login: SÍ",
+    "elapsed": 645
+  },
+  {
+    "timestamp": "2026-04-27T02:22:02.780Z",
+    "level": "info",
+    "message": "CSRF Token en formularios: SÍ",
+    "elapsed": 6149
+  }
+]

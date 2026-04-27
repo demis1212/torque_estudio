@@ -1,0 +1,104 @@
+[
+  {
+    "timestamp": "2026-04-27T02:19:31.956Z",
+    "level": "info",
+    "message": "Probando: Dashboard",
+    "elapsed": 2740
+  },
+  {
+    "timestamp": "2026-04-27T02:19:33.688Z",
+    "level": "info",
+    "message": "Probando: Clientes",
+    "elapsed": 4472
+  },
+  {
+    "timestamp": "2026-04-27T02:19:35.536Z",
+    "level": "info",
+    "message": "Probando: Vehículos",
+    "elapsed": 6320
+  },
+  {
+    "timestamp": "2026-04-27T02:19:37.300Z",
+    "level": "info",
+    "message": "Probando: Órdenes",
+    "elapsed": 8084
+  },
+  {
+    "timestamp": "2026-04-27T02:19:39.035Z",
+    "level": "info",
+    "message": "Probando: Servicios",
+    "elapsed": 9819
+  },
+  {
+    "timestamp": "2026-04-27T02:19:40.708Z",
+    "level": "info",
+    "message": "Probando: Operación Inteligente",
+    "elapsed": 11492
+  },
+  {
+    "timestamp": "2026-04-27T02:19:42.394Z",
+    "level": "info",
+    "message": "Probando: Inventario",
+    "elapsed": 13178
+  },
+  {
+    "timestamp": "2026-04-27T02:19:44.121Z",
+    "level": "info",
+    "message": "Probando: Herramientas",
+    "elapsed": 14905
+  },
+  {
+    "timestamp": "2026-04-27T02:19:45.917Z",
+    "level": "info",
+    "message": "Probando: Manuales",
+    "elapsed": 16701
+  },
+  {
+    "timestamp": "2026-04-27T02:19:47.662Z",
+    "level": "info",
+    "message": "Probando: VIN Decoder",
+    "elapsed": 18446
+  },
+  {
+    "timestamp": "2026-04-27T02:19:49.356Z",
+    "level": "info",
+    "message": "Probando: DTC Codes",
+    "elapsed": 20140
+  },
+  {
+    "timestamp": "2026-04-27T02:19:51.158Z",
+    "level": "info",
+    "message": "Probando: Reportes",
+    "elapsed": 21942
+  },
+  {
+    "timestamp": "2026-04-27T02:19:53.317Z",
+    "level": "info",
+    "message": "Probando: WhatsApp",
+    "elapsed": 24101
+  },
+  {
+    "timestamp": "2026-04-27T02:19:55.076Z",
+    "level": "info",
+    "message": "Probando: Usuarios",
+    "elapsed": 25860
+  },
+  {
+    "timestamp": "2026-04-27T02:19:56.848Z",
+    "level": "error",
+    "message": "Error en Usuarios: page.waitForTimeout: Test timeout of 30000ms exceeded.",
+    "elapsed": 27632
+  },
+  {
+    "timestamp": "2026-04-27T02:19:56.848Z",
+    "level": "info",
+    "message": "Probando: Configuración",
+    "elapsed": 27632
+  },
+  {
+    "timestamp": "2026-04-27T02:19:56.860Z",
+    "level": "error",
+    "message": "Error en Configuración: page.goto: Target page, context or browser has been closed",
+    "elapsed": 27644
+  }
+]

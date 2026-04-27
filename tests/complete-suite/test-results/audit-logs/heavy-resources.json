@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-04-27T00:57:56.728Z",
+    "level": "info",
+    "message": "Total recursos: 2",
+    "elapsed": 901
+  },
+  {
+    "timestamp": "2026-04-27T00:57:56.728Z",
+    "level": "info",
+    "message": "Recursos pesados: 0",
+    "elapsed": 901
+  }
+]

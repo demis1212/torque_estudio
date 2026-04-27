@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-04-27T02:20:01.538Z",
+    "level": "info",
+    "message": "Gráficos encontrados: 2",
+    "elapsed": 6942
+  },
+  {
+    "timestamp": "2026-04-27T02:20:01.541Z",
+    "level": "info",
+    "message": "Estadísticas encontradas: 4",
+    "elapsed": 6945
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-04-27T00:54:40.570Z",
+    "level": "info",
+    "message": "Filas en inventario: 1",
+    "elapsed": 5377
+  },
+  {
+    "timestamp": "2026-04-27T00:54:40.576Z",
+    "level": "info",
+    "message": "Elementos de totales: 0",
+    "elapsed": 5383
+  }
+]

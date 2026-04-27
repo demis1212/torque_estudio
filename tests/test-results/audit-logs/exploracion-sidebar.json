@@ -1,0 +1,146 @@
+[
+  {
+    "timestamp": "2026-04-27T02:19:16.095Z",
+    "level": "info",
+    "message": "Navegando a: Dashboard",
+    "elapsed": 2929
+  },
+  {
+    "timestamp": "2026-04-27T02:19:18.673Z",
+    "level": "info",
+    "message": "✅ Dashboard cargado exitosamente",
+    "elapsed": 5507
+  },
+  {
+    "timestamp": "2026-04-27T02:19:18.673Z",
+    "level": "info",
+    "message": "Navegando a: Clientes",
+    "elapsed": 5507
+  },
+  {
+    "timestamp": "2026-04-27T02:19:20.953Z",
+    "level": "info",
+    "message": "✅ Clientes cargado exitosamente",
+    "elapsed": 7787
+  },
+  {
+    "timestamp": "2026-04-27T02:19:20.953Z",
+    "level": "info",
+    "message": "Navegando a: Vehículos",
+    "elapsed": 7787
+  },
+  {
+    "timestamp": "2026-04-27T02:19:23.165Z",
+    "level": "info",
+    "message": "✅ Vehículos cargado exitosamente",
+    "elapsed": 9999
+  },
+  {
+    "timestamp": "2026-04-27T02:19:23.165Z",
+    "level": "info",
+    "message": "Navegando a: Órdenes",
+    "elapsed": 9999
+  },
+  {
+    "timestamp": "2026-04-27T02:19:25.374Z",
+    "level": "info",
+    "message": "✅ Órdenes cargado exitosamente",
+    "elapsed": 12208
+  },
+  {
+    "timestamp": "2026-04-27T02:19:25.375Z",
+    "level": "info",
+    "message": "Navegando a: Servicios",
+    "elapsed": 12209
+  },
+  {
+    "timestamp": "2026-04-27T02:19:27.525Z",
+    "level": "info",
+    "message": "✅ Servicios cargado exitosamente",
+    "elapsed": 14359
+  },
+  {
+    "timestamp": "2026-04-27T02:19:27.525Z",
+    "level": "info",
+    "message": "Navegando a: Operación Inteligente",
+    "elapsed": 14359
+  },
+  {
+    "timestamp": "2026-04-27T02:19:29.696Z",
+    "level": "info",
+    "message": "✅ Operación Inteligente cargado exitosamente",
+    "elapsed": 16530
+  },
+  {
+    "timestamp": "2026-04-27T02:19:29.697Z",
+    "level": "info",
+    "message": "Navegando a: Inventario",
+    "elapsed": 16531
+  },
+  {
+    "timestamp": "2026-04-27T02:19:31.851Z",
+    "level": "info",
+    "message": "✅ Inventario cargado exitosamente",
+    "elapsed": 18685
+  },
+  {
+    "timestamp": "2026-04-27T02:19:31.851Z",
+    "level": "info",
+    "message": "Navegando a: Herramientas",
+    "elapsed": 18685
+  },
+  {
+    "timestamp": "2026-04-27T02:19:34.165Z",
+    "level": "info",
+    "message": "✅ Herramientas cargado exitosamente",
+    "elapsed": 20999
+  },
+  {
+    "timestamp": "2026-04-27T02:19:34.165Z",
+    "level": "info",
+    "message": "Navegando a: Manuales",
+    "elapsed": 20999
+  },
+  {
+    "timestamp": "2026-04-27T02:19:36.389Z",
+    "level": "info",
+    "message": "✅ Manuales cargado exitosamente",
+    "elapsed": 23223
+  },
+  {
+    "timestamp": "2026-04-27T02:19:36.389Z",
+    "level": "info",
+    "message": "Navegando a: VIN Decoder",
+    "elapsed": 23223
+  },
+  {
+    "timestamp": "2026-04-27T02:19:38.572Z",
+    "level": "info",
+    "message": "✅ VIN Decoder cargado exitosamente",
+    "elapsed": 25406
+  },
+  {
+    "timestamp": "2026-04-27T02:19:38.572Z",
+    "level": "info",
+    "message": "Navegando a: DTC Codes",
+    "elapsed": 25406
+  },
+  {
+    "timestamp": "2026-04-27T02:19:39.631Z",
+    "level": "error",
+    "message": "❌ Error en DTC Codes: page.waitForTimeout: Test timeout of 30000ms exceeded.",
+    "elapsed": 26465
+  },
+  {
+    "timestamp": "2026-04-27T02:19:39.631Z",
+    "level": "info",
+    "message": "Navegando a: Reportes",
+    "elapsed": 26465
+  },
+  {
+    "timestamp": "2026-04-27T02:19:39.640Z",
+    "level": "error",
+    "message": "❌ Error en Reportes: page.goto: Target page, context or browser has been closed",
+    "elapsed": 26474
+  }
+]
