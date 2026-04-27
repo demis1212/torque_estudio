@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: torque-estudio
+    env: php
+    phpVersion: "8.2"
+    buildCommand: "composer install --no-interaction --prefer-dist && php install.php"
+    startCommand: "php -S 0.0.0.0:$PORT -t public"
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: torque_estudio_db
+          property: host
+      - key: DB_USER
+        fromDatabase:
+          name: torque_estudio_db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: torque_estudio_db
+          property: password
+      - key: DB_NAME
+        value: torque_erp
+
+databases:
+  - name: torque_estudio_db
+    databaseName: torque_erp
+    user: torque_user
