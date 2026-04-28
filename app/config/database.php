@@ -26,7 +26,7 @@ class Database {
     private static $user = 'if0_41764302_torqueuser';
     
     // Password: El password que generaste al crear el usuario
-    private static $password = 'TU_PASSWORD_AQUI';
+    private static $password = 'cocodrilo1AA';
     
     // ============================================
     

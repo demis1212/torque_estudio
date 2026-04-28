@@ -6,94 +6,22 @@
 
 # Test info
 
-- Name: 05-security-pentest.spec.js >> 🔐 Suite Pentesting - Auditoría de Seguridad >> 🚨 [BAJO] Security Headers
-- Location: tests\05-security-pentest.spec.js:377:3
+- Name: 05-security-pentest.spec.js >> 🔐 Suite Pentesting - Auditoría de Seguridad >> 🚨 [CRÍTICO] Mass Assignment
+- Location: 05-security-pentest.spec.js:445:3
 
 # Error details
 
 ```
-TypeError: browser.newContext(...).newPage is not a function
+TimeoutError: page.waitForURL: Timeout 15000ms exceeded.
+=========================== logs ===========================
+waiting for navigation to "**/dashboard" until "load"
+  navigated to "chrome-error://chromewebdata/"
+============================================================
 ```
 
 # Test source
 
 ```ts
-  280 |     await page.fill('input[name="password"]', 'admin123');
-  281 |     await page.click('button[type="submit"]');
-  282 |     await page.waitForURL('**/dashboard', { timeout: 15000 });
-  283 |     
-  284 |     const sensitivePaths = [
-  285 |       '/.env',
-  286 |       '/config.php',
-  287 |       '/.htaccess',
-  288 |       '/phpinfo.php',
-  289 |       '/test-login.php',
-  290 |       '/fix-password.php',
-  291 |       '/server-info',
-  292 |     ];
-  293 |     
-  294 |     const exposedPaths = [];
-  295 |     
-  296 |     for (const path of sensitivePaths) {
-  297 |       try {
-  298 |         const response = await page.goto(`${BASE_URL}${path}`, { timeout: 5000 });
-  299 |         const status = response?.status() || 0;
-  300 |         
-  301 |         if (status === 200) {
-  302 |           const content = await page.locator('body').textContent();
-  303 |           
-  304 |           // Buscar información sensible
-  305 |           const hasSensitiveInfo = /password|database|config|DB_|API_KEY|SECRET/i.test(content);
-  306 |           
-  307 |           if (hasSensitiveInfo) {
-  308 |             exposedPaths.push({ path, reason: 'Contiene info sensible' });
-  309 |             console.error(`❌ EXPOSICIÓN: ${path} contiene información sensible`);
-  310 |             await captureScreenshot(page, `pentest-info-disclosure-${path.replace(/\//g, '')}`);
-  311 |           }
-  312 |         }
-  313 |       } catch (e) {
-  314 |         // Ignorar errores
-  315 |       }
-  316 |     }
-  317 |     
-  318 |     await context.close();
-  319 |     
-  320 |     expect(exposedPaths.length, 'No debería exponer información sensible').toBe(0);
-  321 |   });
-  322 | 
-  323 |   // ==================== 7. SQL INJECTION ====================
-  324 |   
-  325 |   test('🚨 [ALTO] SQL Injection', async ({ browser }) => {
-  326 |     console.log('\n💾 Probando SQL Injection...');
-  327 |     
-  328 |     const context = await browser.newContext();
-  329 |     const page = await context.newPage();
-  330 |     
-  331 |     // Login
-  332 |     await page.goto(`${BASE_URL}/login`, { waitUntil: 'networkidle' });
-  333 |     await page.fill('input[name="email"]', 'admin@torque.com');
-  334 |     await page.fill('input[name="password"]', 'admin123');
-  335 |     await page.click('button[type="submit"]');
-  336 |     await page.waitForURL('**/dashboard', { timeout: 15000 });
-  337 |     
-  338 |     const sqlPayloads = [
-  339 |       "' OR '1'='1",
-  340 |       "' UNION SELECT * FROM users --",
-  341 |       "1; DROP TABLE users; --",
-  342 |       "' OR 1=1#",
-  343 |       "admin'--",
-  344 |     ];
-  345 |     
-  346 |     // Probar en búsquedas
-  347 |     try {
-  348 |       await page.goto(`${BASE_URL}/clients`, { waitUntil: 'networkidle' });
-  349 |       
-  350 |       const searchInput = page.locator('input[type="search"], input[name="search"]').first();
-  351 |       if (await searchInput.isVisible({ timeout: 3000 }).catch(() => false)) {
-  352 |         for (const payload of sqlPayloads) {
-  353 |           await searchInput.fill(payload);
-  354 |           await searchInput.press('Enter');
-  355 |           await page.waitForTimeout(1000);
   356 |           
   357 |           // Buscar errores SQL
   358 |           const bodyText = await page.locator('body').textContent();
@@ -118,8 +46,7 @@ TypeError: browser.newContext(...).newPage is not a function
   377 |   test('🚨 [BAJO] Security Headers', async ({ browser }) => {
   378 |     console.log('\n🔒 Verificando headers de seguridad...');
   379 |     
-> 380 |     const response = await browser.newContext().newPage().goto(`${BASE_URL}/login`);
-      |                                                 ^ TypeError: browser.newContext(...).newPage is not a function
+  380 |     const response = await browser.newContext().newPage().goto(`${BASE_URL}/login`);
   381 |     const headers = response.headers();
   382 |     
   383 |     const securityHeaders = {
@@ -195,7 +122,8 @@ TypeError: browser.newContext(...).newPage is not a function
   453 |     await page.fill('input[name="email"]', 'admin@torque.com');
   454 |     await page.fill('input[name="password"]', 'admin123');
   455 |     await page.click('button[type="submit"]');
-  456 |     await page.waitForURL('**/dashboard', { timeout: 15000 });
+> 456 |     await page.waitForURL('**/dashboard', { timeout: 15000 });
+      |                ^ TimeoutError: page.waitForURL: Timeout 15000ms exceeded.
   457 |     
   458 |     // Intentar crear con campos no permitidos
   459 |     try {
@@ -220,4 +148,9 @@ TypeError: browser.newContext(...).newPage is not a function
   478 |       
   479 |     } catch (e) {
   480 |       console.log(`⚠️ Error en Mass Assignment: ${e.message}`);
+  481 |     }
+  482 |   });
+  483 | 
+  484 | });
+  485 | 
 ```
